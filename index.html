@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dist/css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="dist/css/main.css" />
     <title>Listings</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <header class="bg-black">
+      <nav class="d-flex justify-content-between align-items-center bg-black container-xxl">
+        <div class=" d-flex align-items-center flex-column flex-md-row">
+          <a href="index.html"><img class="logo-link pb-2" src="images/logo.svg" alt=""></a>
+          <form class="d-flex align-items-center" role="search">
+            <input
+              class="form-control  rounded-0 me-0"
+              type="search"
+              placeholder="Search Listings"
+              aria-label="Search"
+            />
+            <button class="btn bg-secondary-subtle rounded-0 ms-0" type="submit">
+              <i class="bi bi-search h4"></i>
+            </button>
+          </form>
+        </div>
+        <div class="me-2">
+            <button class="btn btn-large bg-white border-0 rounded-0 fw-bold ">
+                Log in / Sign up
+            </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="bg-black">
+
+        <section class="create-listing-banner container-xxl d-flex justify-content-center align-content-center">
+            <div class="p-5">
+                <p class="text-white pe-5 h4">Need more space for new junk? <br> Sell your stuff!</p>
+                
+                <div class="d-flex justify-content-end">
+                    <button class="btn bg-white btn-large border-0 rounded-0 fs-2 fw-bold">Create Listing</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+  </body>
 </html>

@@ -1,3 +1,47 @@
+:root {
+  --red-600: #b02a37;
+  --red-200: #f1aeb5;
+  --secondary: #6c757d;
+  --secondary-light: #abb5be;
 
+  --bs-navbar-brand-font-size: 4rem;
+
+  --font-family-sans-serif: "Red Hat Mono", monospace;
+  --display-font-family: "Silkscreen", sans-serif;
+}
+
+$display-font-family: "Silkscreen", sans-serif;
+$font-family-sans-serif: "Red Hat Mono", monospace;
+
+.create-listing-banner {
+  background-color: black;
+  background-image: url(../../images/banner-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  max-height: 300px;
+  min-height: 215px;
+}
+
+.btn-large {
+  box-shadow: 4px 4px 0px 0px var(--red-600);
+  height: max-content;
+  width: max-content;
+}
+
+.btn-large:hover {
+  box-shadow: none;
+  background-color: var(--red-600);
+  color: white;
+}
+
+input,
+form .btn {
+  height: 36px;
+}
+
+.logo-link {
+max-height: 60px;
+
+}
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
