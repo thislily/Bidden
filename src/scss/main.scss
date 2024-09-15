@@ -60,11 +60,29 @@ main {
   box-shadow: 6px 6px 0px 0px black;
 }
 
+.thick-shadow-no-hover{
+  box-shadow: 6px 6px 0px 0px black;
+}
+
 .thick-shadow:hover {
   box-shadow: 6px 6px 0px 0px var(--red-600);
 }
 
+.avatar {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.avatar-mini {
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  margin-right: 12px;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
 .btn-large {
   box-shadow: 4px 4px 0px 0px var(--red-600);
   background-color: white;
