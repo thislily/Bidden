@@ -13,6 +13,8 @@
 $display-font-family: "Silkscreen", sans-serif;
 $font-family-sans-serif: "Red Hat Mono", monospace;
 
+$primary: #b02a37;
+
 .create-listing-banner {
   background-color: black;
   background-image: url(../../images/banner-bg.jpg);
@@ -20,10 +22,52 @@ $font-family-sans-serif: "Red Hat Mono", monospace;
   background-size: cover;
   max-height: 300px;
   min-height: 215px;
+  border-bottom: 1px solid white;
 }
 
+input,
+form .btn {
+  height: 36px;
+}
+
+.logo-link {
+  max-height: 60px;
+  font-family: var(--display-font-family);
+  font-size: 40px;
+  font-weight: 700  ;
+  color: white;
+  text-decoration: none;
+  padding: none;
+  padding-right: 16px;
+
+}
+
+header {
+margin-bottom: 72px;
+border-bottom: 1px solid white;
+}
+
+main {
+  margin-top: 72px;
+}
+
+.form-select {
+  height: 36px;
+  max-width: 300px;
+}
+
+.thick-shadow {
+  box-shadow: 6px 6px 0px 0px black;
+}
+
+.thick-shadow:hover {
+  box-shadow: 6px 6px 0px 0px var(--red-600);
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 .btn-large {
   box-shadow: 4px 4px 0px 0px var(--red-600);
+  background-color: white;
   height: max-content;
   width: max-content;
 }
@@ -33,15 +77,3 @@ $font-family-sans-serif: "Red Hat Mono", monospace;
   background-color: var(--red-600);
   color: white;
 }
-
-input,
-form .btn {
-  height: 36px;
-}
-
-.logo-link {
-max-height: 60px;
-
-}
-
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
