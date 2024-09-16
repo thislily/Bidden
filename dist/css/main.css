@@ -74,6 +74,14 @@ main {
   margin-right: 12px;
 }
 
+.avatar-nav {
+  border-radius: 50%;
+  height: 72px;
+  width: 72px;
+  border: 1px solid white;
+  margin: 0px;
+}
+
 #auction-card {
   scroll-margin-top: 120px;
 }
