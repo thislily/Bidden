@@ -13,7 +13,8 @@
 $display-font-family: "Silkscreen", sans-serif;
 $font-family-sans-serif: "Red Hat Mono", monospace;
 
-$primary: #b02a37;
+$primary: #8ACE00;
+$primary-dark: #5E8C00;
 
 .create-listing-banner {
   background-color: black;
@@ -35,7 +36,7 @@ form .btn {
   font-family: var(--display-font-family);
   font-size: 40px;
   font-weight: 700  ;
-  color: white;
+  color: $primary;
   text-decoration: none;
   padding: none;
   padding-right: 16px;
@@ -65,11 +66,11 @@ main {
 }
 
 .thick-shadow-red{
-    box-shadow: 6px 6px 0px 0px var(--red-600);
+    box-shadow: 6px 6px 0px 0px $primary;
   }
 
 .thick-shadow:hover {
-  box-shadow: 6px 6px 0px 0px var(--red-600);
+  box-shadow: 6px 6px 0px 0px $primary;
   transition: ease-in-out 0.2s;
 }
 
@@ -88,6 +89,7 @@ main {
   height: 48px;
   width: 48px;
   margin-right: 12px;
+  border: 1px solid black;
 }
 
 .avatar-nav{
@@ -99,7 +101,7 @@ main {
 }
 
 .avatar-nav:hover{
-    border: 2px solid var(--red-600);
+    border: 2px solid $primary;
     cursor: pointer;
     transform: scale(1.1);
     transition: ease-in-out 0.2s;
@@ -110,10 +112,11 @@ main {
     scroll-margin-top: 120px; 
 }
 
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 .btn-large {
-  box-shadow: 4px 4px 0px 0px var(--red-600);
+  box-shadow: 4px 4px 0px 0px $primary;
   background-color: white;
   height: max-content;
   width: max-content;
@@ -121,7 +124,7 @@ main {
 
 .btn-large:hover {
   box-shadow: none;
-  background-color: var(--red-600);
-  color: white;
+  background-color: $primary;
+  color: black;
   transition: ease-in-out 0.2s;
 }
