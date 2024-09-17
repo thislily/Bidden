@@ -47,9 +47,21 @@
                 </div>
     
                 <div class="col d-flex justify-content-end align-items-start me-2 mt-3 mt-lg-0">
+
+                    <!-- Avatar ++ -->
+
+                    <div class="d-none d-sm-flex justify-content-center flex-column align-items-end mt-2">
+                        <p class="text-white p-0 m-0">Welcome, Lady Nameson</p>
+                        <p class="text-white fst-italic m-0">Credits: <span class="fw-bold">330</span></p>
+                    </div>
+
+                    <img src="../images/avatar.jpg" alt="avatar" class="avatar-nav ms-2 mt-md-1" id="open-menu">
+
+                    <!-- Log in Button -->
+<!-- 
                     <button class="btn btn-large border-0 rounded-0 fw-semibold">
                       Log in
-                    </button>
+                    </button> -->
                   </div>
               </nav>
     </header>
@@ -71,7 +83,7 @@
     <div class="card rounded-0 border-black bg-light thick-shadow-no-hover mb-4" style="width: 100%; max-width:800px">
         <img src="../images/banner.jpg" class="card-img-top object-fit-cover rounded-0" alt="banner" style="height: 220px;">
         <div class="card-img-overlay d-flex justify-content-end">
-            <button class="btn btn-outline-light rounded-0 fw-semibold d-block d-md-none" style="height: max-content;">Edit</button>
+            <button class="btn btn-outline-light rounded-0 fw-semibold d-block d-md-none" style="height: max-content;" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
         </div>
 
         <div class="d-flex align-items-top justify-content-between p-3">
@@ -83,10 +95,59 @@
                 <h1 class="card-title h2">Lady Nameson</h1>
                 <p class="card-text">I'm a fan of shoes and lamps, can't get enough of them!</p>
             </div>
-            <button class="btn btn-outline-secondary rounded-0 ms-5 fw-semibold d-none d-md-block" style="height: max-content;">Edit</button>
+            <button class="btn btn-outline-secondary rounded-0 ms-5 fw-semibold d-none d-md-block" style="height: max-content;" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
         </div>
 
     </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="edit profile modal" aria-hidden="true">
+              <div class="modal-dialog ">
+                <div class="modal-content rounded-0 thick-shadow-red border-black" >
+
+                  <div class="modal-body border-0 mx-auto py-5" style="max-width: 360px; width: 80%;">
+                    <h1 class="modal-title h2 fw-bold">Edit Profile</h1>
+            
+  
+                    <!--Edit Profile Form starts here -->
+  
+                    <form class="needs-validation" id="edit-profile-form" novalidate>
+  
+                      <div class="mb-3">
+                          <label for="avatar" class="form-label mb-0">Avatar URL</label>
+                          <input type="url" class="form-control rounded-0 border-black" id="avatar" name="avatar">
+                          <div class="invalid-feedback">
+                            Please enter a valid image URL.
+                          </div>
+                        </div>               
+   
+                      <div class="mb-3">
+                          <label for="banner" class="form-label mb-0">Banner URL</label>
+                          <input type="url" class="form-control rounded-0 border-black" id="banner" name="banner">
+                          <div class="invalid-feedback">
+                            Please enter a valid image URL.
+                          </div>
+                        </div>
+  
+                        <div class="mb-3">
+                          <label for="banner-alt" class="form-label mb-0">Banner description</label>
+                          <input type="url" class="form-control rounded-0 border-black" id="banner-alt" name="banner-alt">
+                          <div class="invalid-feedback">
+                            Please enter a description of the image.
+                          </div>
+                        </div>
+            
+                      <!-- Submit and cancel buttons inside the form -->
+                      <div class="d-flex justify-content-between flex-wrap row-gap-2 border-0 pt-3">
+                        <button type="submit" class="btn btn-outline-primary rounded-0 fw-semibold">Save Changes</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind</button>
+                      </div>
+                    </form>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
 
     <!-- Profile Listings -->
 
