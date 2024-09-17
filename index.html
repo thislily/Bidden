@@ -20,6 +20,7 @@
       href="node_modules/bootstrap-icons/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="dist/css/main.css" />
+    <script type="module" src="js/app.mjs"></script>
     <title>Listings</title>
   </head>
   <body class="bg-black">
@@ -68,7 +69,6 @@
     </header>
 
         <!-- Modal -->
-        <!-- Modal -->
         <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Log in modal" aria-hidden="true">
             <div class="modal-dialog ">
               <div class="modal-content rounded-0 thick-shadow-red border-black pb-5" >
@@ -81,14 +81,10 @@
                   </button>
                 </div>
                 <div class="modal-body border-0 mx-auto" style="max-width: 360px; width: 80%;">
-<<<<<<< Updated upstream
-                  <h1 class="modal-title h2 fw-bold" id="login-label">Sign up here</h1>
-=======
                   <h1 class="modal-title h2 fw-bold pt-3" id="login-label">Log in here</h1>
->>>>>>> Stashed changes
           
                   <!--Login Form starts here -->
-                  <!-- <form class="needs-validation" id="log-in-form" novalidate>
+                  <form class="needs-validation d-block" id="login-form">
                     <div class="mb-3">
                       <label for="email" class="form-label mb-0">Email</label>
                       <input type="text" class="form-control rounded-0 border-black" id="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(noroff\.no|stud\.noroff\.no)$">
@@ -103,32 +99,19 @@
                       <div class="invalid-feedback">
                         Please enter your password.
                       </div>
-                    </div> -->
+                    </div>
           
                     <!-- Submit and cancel buttons inside the form -->
-<<<<<<< Updated upstream
-                    <!-- <div class="d-flex justify-content-between border-0">
-                      <button type="submit" class="btn btn-outline-primary rounded-0 fw-semibold">Log in</button>
-                      <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind</button>
-=======
                     <div class="d-flex justify-content-between border-0">
                       <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Log in <i class="bi bi-box-arrow-in-right "></i></button>
                       <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle "></i></button>
->>>>>>> Stashed changes
                     </div>
-                  </form> -->
+                  </form>
 
                   <!--Register Form starts here -->
-<<<<<<< Updated upstream
-                  <div class="mb-3">
-                    <label for="name" class="form-label mb-0">Name</label>
-                    <input type="text" class="form-control rounded-0 border-black" id="name" name="name" required>
-                    <div class="invalid-feedback">
-                      Please enter your name.
-=======
 
 
-                  <form class="d-none" id="register-form">
+                  <form class="needs-validation d-none" id="register-form">
 
                     <div class="mb-3">
                       <label for="regName" class="form-label mb-0">Name*</label>
@@ -141,19 +124,10 @@
                       pattern="[A-Za-z0-9_]+"
                       title="Username must be 1-40 characters long and contain only letters, numbers, and underscores."
                       required>
->>>>>>> Stashed changes
                     </div>
-                  </div>
+                  
 
-                  <form class="needs-validation" id="register-form" novalidate>
                     <div class="mb-3">
-<<<<<<< Updated upstream
-                      <label for="email" class="form-label mb-0">Email</label>
-                      <input type="text" class="form-control rounded-0 border-black" id="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(noroff\.no|stud\.noroff\.no)$">
-                      <div class="invalid-feedback">
-                        Please enter a valid @noroff.no or @stud.noroff.no email.
-                      </div>
-=======
                       <label for="regEmail" class="form-label mb-0">Email*</label>
                       <input                     
                       type="email"
@@ -164,18 +138,9 @@
                       pattern="^[^@]+@(stud\.|)(noroff\.no)$"
                       title="Email must end with @noroff.no or @stud.noroff.no"
                       required>
->>>>>>> Stashed changes
                     </div>
 
                     <div class="mb-3">
-<<<<<<< Updated upstream
-                      <label for="password" class="form-label mb-0">Password</label>
-                      <input type="password" class="form-control rounded-0 border-black" id="password" name="password" required>
-                      <div class="invalid-feedback">
-                        Please enter your password.
-                      </div>
-                    </div>
-=======
                       <label for="bio" class="form-label mb-0">Bio</label>
                       <input                     
                       type="textarea"
@@ -185,7 +150,6 @@
                       placeholder="A little about yourself"
                       title="Please enter some information about yourself.">
                     </div>  
->>>>>>> Stashed changes
 
                     <div class="mb-3">
                         <label for="avatar" class="form-label mb-0">Avatar URL</label>
@@ -220,14 +184,6 @@
                         minlength="8"
                         title="Password must be at least 8 characters long"
                         required>
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="banner-alt" class="form-label mb-0">Banner description</label>
-                        <input type="url" class="form-control rounded-0 border-black" id="banner-alt" name="banner-alt">
-                        <div class="invalid-feedback">
-                          Please enter a valid image URL.
-                        </div>
                       </div>
           
                     <!-- Submit and cancel buttons inside the form -->

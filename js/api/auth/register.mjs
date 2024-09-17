@@ -1,5 +1,5 @@
 import { REGISTER_URL } from "../auth/constants.mjs";
-import { loginUser } from "./login.mjs";
+// import { loginUser } from "./login.mjs";
 
 /**
  * register a new user with the profile data
