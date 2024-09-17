@@ -20,6 +20,7 @@
       href="../node_modules/bootstrap-icons/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="../dist/css/main.css" />
+    <script type="module" src="../js/app.mjs"></script>
     <title>Listings</title>
   </head>
   <body class="bg-black">
@@ -55,10 +56,10 @@
               </nav>
     </header>
 
-        <!-- Modal -->
-        <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Log in modal" aria-hidden="true">
+          <!-- Modal -->
+          <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Log in modal" aria-hidden="true">
             <div class="modal-dialog ">
-              <div class="modal-content rounded-0 thick-shadow-red border-black" >
+              <div class="modal-content pb-5 rounded-0 thick-shadow-red border-black" >
                 <div class="d-flex border-0 p-0">
                   <button class="w-50 btn btn-secondary fw-semibold rounded-0 shadow-subtle p-3" id="view-login-button">
                     Already have an account?<br><i class="bi bi-person h1"></i>
@@ -68,10 +69,10 @@
                   </button>
                 </div>
                 <div class="modal-body border-0 mx-auto" style="max-width: 360px; width: 80%;">
-                  <h1 class="modal-title h2 fw-bold" id="login-label">Sign up here</h1>
+                  <h1 class="modal-title h2 fw-bold pt-3" id="login-label">Log in here</h1>
           
                   <!--Login Form starts here -->
-                  <!-- <form class="needs-validation" id="log-in-form" novalidate>
+                  <form class="needs-validation d-block" id="login-form" novalidate>
                     <div class="mb-3">
                       <label for="email" class="form-label mb-0">Email</label>
                       <input type="text" class="form-control rounded-0 border-black" id="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(noroff\.no|stud\.noroff\.no)$">
@@ -86,28 +87,31 @@
                       <div class="invalid-feedback">
                         Please enter your password.
                       </div>
-                    </div> -->
+                    </div>
           
                     <!-- Submit and cancel buttons inside the form -->
-                    <!-- <div class="d-flex justify-content-between border-0">
-                      <button type="submit" class="btn btn-outline-primary rounded-0 fw-semibold">Log in</button>
-                      <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind</button>
+                    <div class="d-flex justify-content-between border-0">
+                      <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Log in <i class="bi bi-box-arrow-in-right "></i></button>
+                      <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle"></i></button>
                     </div>
-                  </form> -->
+                  </form>
 
                   <!--Register Form starts here -->
-                  <div class="mb-3">
-                    <label for="name" class="form-label mb-0">Name</label>
-                    <input type="text" class="form-control rounded-0 border-black" id="name" name="name" required>
-                    <div class="invalid-feedback">
-                      Please enter your name.
-                    </div>
-                  </div>
 
-                  <form class="needs-validation" id="register-form" novalidate>
+
+                  <form class="needs-validation d-none" id="register-form" novalidate>
+
+                    <div class="mb-3">
+                      <label for="name" class="form-label mb-0">Name</label>
+                      <input type="text" class="form-control rounded-0 border-black" id="name" name="name" required>
+                      <div class="invalid-feedback">
+                        Please enter your name.
+                      </div>
+                    </div>
+
                     <div class="mb-3">
                       <label for="email" class="form-label mb-0">Email</label>
-                      <input type="text" class="form-control rounded-0 border-black" id="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(noroff\.no|stud\.noroff\.no)$">
+                      <input type="text" class="form-control rounded-0 border-black" id="reg-email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(noroff\.no|stud\.noroff\.no)$">
                       <div class="invalid-feedback">
                         Please enter a valid @noroff.no or @stud.noroff.no email.
                       </div>
@@ -115,7 +119,7 @@
           
                     <div class="mb-3">
                       <label for="password" class="form-label mb-0">Password</label>
-                      <input type="password" class="form-control rounded-0 border-black" id="password" name="password" required>
+                      <input type="password" class="form-control rounded-0 border-black" id="reg-password" name="password" required>
                       <div class="invalid-feedback">
                         Please enter your password.
                       </div>
@@ -136,19 +140,12 @@
                           Please enter a valid image URL.
                         </div>
                       </div>
-
-                      <div class="mb-3">
-                        <label for="banner-alt" class="form-label mb-0">Banner description</label>
-                        <input type="url" class="form-control rounded-0 border-black" id="banner-alt" name="banner-alt">
-                        <div class="invalid-feedback">
-                          Please enter a valid image URL.
-                        </div>
-                      </div>
+                   
           
                     <!-- Submit and cancel buttons inside the form -->
                     <div class="d-flex justify-content-between border-0">
-                      <button type="submit" class="btn btn-outline-primary rounded-0 fw-semibold">Sign up</button>
-                      <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind</button>
+                      <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Sign up <i class="bi bi-box-arrow-in-right "></i></button>
+                      <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle "></i></button>
                     </div>
                   </form>
                   
@@ -162,7 +159,7 @@
       <section class="container-xxl bg-white pt-5 pt-lg-1">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
-              <li class="breadcrumb-item"><a href="../index.html">All Listings</a></li>
+              <li class="breadcrumb-item text-secondary"><a href="../index.html">All Listings</a></li>
               <li class="breadcrumb-item active" aria-current="page">Cute Lamp</li>
             </ol>
           </nav>
@@ -175,7 +172,7 @@
                 <h1 class="card-title text-center h3 pt-1">Cute Lamp</h1>
                 <img src="../images/item.jpg" class="card-img" alt="cute lamp">
                 <div class="card-img-overlay d-block d-md-none">
-                    <a href="#auction-card" class="btn btn-outline-primary rounded-0 my-5">Bid Now</a>
+                    <a href="#auction-card" class="btn btn-outline-primary text-black rounded-0 my-5">Bid Now</a>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Just a cutie pie little lamp.</p>
@@ -202,13 +199,13 @@
                 <div class="d-flex justify-content-start align-items-center p-3">
                     <img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">
                     <input type="text" name="bid" id="bid" class="rounded-0 border-1 me-2" style="width: 80px; height: 38px;">
-                    <button class="btn btn-outline-primary rounded-0">Bid</button>
+                    <button class="btn btn-outline-primary text-black rounded-0">Bid</button>
                 </div>
            
                 <ul class="list-group list-group-flush gap-2 pb-2 border-0">
                     <li class="list-group-item bg-secondary-subtle py-1"><img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">22 Credits</li>
                     <li class="list-group-item bg-secondary-subtle"> <img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">26 Credits</li>
-                    <li class="list-group-item bg-primary-subtle border-primary border-1 border-start-0 border-end-0 rounded-0"><img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">31 Credits <span class="text-primary fst-italic fw-semibold">WINNING</span></li>
+                    <li class="list-group-item bg-primary-subtle border-primary border-1 border-start-0 border-end-0 rounded-0"><img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">31 Credits <span class="fst-italic fw-semibold">WINNING</span></li>
                   </ul>
             </div>
 
