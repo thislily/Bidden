@@ -37,5 +37,7 @@ export function handleRegForm() {
     };
 
     registerUser(profile);
+
+    registerForm.reset();
   });
 }
