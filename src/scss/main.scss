@@ -53,7 +53,7 @@ main {
 
 .form-select {
   height: 36px;
-  max-width: 300px;
+  max-width: fit-content;
 }
 
 .thick-shadow {
@@ -64,8 +64,17 @@ main {
   box-shadow: 6px 6px 0px 0px black;
 }
 
+.thick-shadow-red{
+    box-shadow: 6px 6px 0px 0px var(--red-600);
+  }
+
 .thick-shadow:hover {
   box-shadow: 6px 6px 0px 0px var(--red-600);
+  transition: ease-in-out 0.2s;
+}
+
+.shadow-subtle{
+    box-shadow: -2px 2px 4px 0px black;
 }
 
 .avatar {
@@ -85,8 +94,16 @@ main {
     border-radius: 50%;
     height: 72px;
     width: 72px;
-    border: 1px solid white;
+    border: 2px solid white;
     margin: 0px;
+}
+
+.avatar-nav:hover{
+    border: 2px solid var(--red-600);
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: ease-in-out 0.2s;
+
 }
 
 #auction-card{
@@ -106,4 +123,5 @@ main {
   box-shadow: none;
   background-color: var(--red-600);
   color: white;
+  transition: ease-in-out 0.2s;
 }
