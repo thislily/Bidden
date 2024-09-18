@@ -138,6 +138,36 @@ main {
   scroll-margin-top: 120px;
 }
 
+/* CSS Loader */
+.loader {
+  width: 80px;
+  height: 40px;
+  color: #8ACE00; /* Color used for the loader bars */
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  padding: 3px;
+  background: repeating-linear-gradient(90deg, currentColor 0 10px, rgba(0, 0, 0, 0) 0 15px) 0/0% no-repeat content-box content-box;
+  position: relative;
+  box-sizing: border-box;
+  animation: l5 2s infinite steps(6);
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: 100%;
+  width: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0) calc(50% - 7px), #8ACE00 0 calc(50% - 5px), rgba(0, 0, 0, 0) 0 calc(50% + 5px), #8ACE00 0 calc(50% + 7px), rgba(0, 0, 0, 0) 0) left/100% 100%, linear-gradient(#8ACE00 calc(50% - 5px), rgba(0, 0, 0, 0) 0 calc(50% + 5px), #8ACE00 0) left/2px 100%, linear-gradient(rgba(0, 0, 0, 0) calc(50% - 5px), #8ACE00 0 calc(50% + 5px), rgba(0, 0, 0, 0) 0) right/2px 100%;
+  background-repeat: no-repeat;
+}
+
+@keyframes l5 {
+  100% {
+    background-size: 120%;
+  }
+}
 /*!
  * Bootstrap  v5.3.3 (https://getbootstrap.com/)
  * Copyright 2011-2024 The Bootstrap Authors
