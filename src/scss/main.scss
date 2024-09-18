@@ -43,6 +43,11 @@ form .btn {
 
 }
 
+.logo-link:hover {
+  transform: scale(1.1);
+  transition: ease 0.2s;
+}
+
 header {
 margin-bottom: 72px;
 border-bottom: 1px solid $primary;
@@ -98,7 +103,7 @@ main {
   width: 72px;
   border: 2px solid white;
   margin: 0;
-  animation: pulse 2s ease-in-out 20; /* Pulse over 3 seconds, repeating 20 times */
+  animation: pulse 2s ease-in-out 20; /* Pulse over 2 seconds, repeating 20 times */
   transition: transform 0.2s ease-in-out, border-color 0.5s ease-in-out; /* Smooth hover transition */
 }
 
@@ -107,6 +112,13 @@ main {
   cursor: pointer;
   transform: scale(1.1);
 }
+
+.list-group-item-dark a:hover {
+  letter-spacing: 2px;
+  transition: ease-in-out 0.5s;
+
+}
+
 
 
 
@@ -147,14 +159,4 @@ main {
   background-color: $primary;
   color: black;
   transition: ease-in-out 0.2s;
-}
-
-.dropdown-menu {
-  position: absolute;
-  padding-top: 100px;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: 400px;
-
 }

@@ -1,7 +1,8 @@
 //check if the user is logged in via local storage, then change the nav menu to show the user's avatar
 
 export const navUsername = document.querySelector("#nav-username");
-// export const navCredits = document.querySelector("#nav-credits");
+export const navCredits = document.querySelector("#nav-credits");
+export const menuCredits = document.querySelector("#menu-credits");
 export const navUsernameContainer = document.querySelector(
   "#nav-username-container"
 );
@@ -11,7 +12,8 @@ export const navLoginButton = document.querySelector("#nav-login-button");
 export function handleNavMenuAvatar() {
   const profile = JSON.parse(localStorage.getItem("profile"));
   if (profile) {
-    // navCredits.textContent = profile.credits;
+    navCredits.textContent = profile.credits;
+    menuCredits.textContent = profile.credits;
     navUsernameContainer.classList.add("d-sm-flex");
     navLoginButton.classList.add("d-none");
     openMenu.classList.remove("d-none");

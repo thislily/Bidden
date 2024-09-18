@@ -35,6 +35,11 @@ form .btn {
   padding-right: 16px;
 }
 
+.logo-link:hover {
+  transform: scale(1.1);
+  transition: ease 0.2s;
+}
+
 header {
   margin-bottom: 72px;
   border-bottom: 1px solid #8ACE00;
@@ -90,7 +95,7 @@ main {
   width: 72px;
   border: 2px solid white;
   margin: 0;
-  animation: pulse 2s ease-in-out 20; /* Pulse over 3 seconds, repeating 20 times */
+  animation: pulse 2s ease-in-out 20; /* Pulse over 2 seconds, repeating 20 times */
   transition: transform 0.2s ease-in-out, border-color 0.5s ease-in-out; /* Smooth hover transition */
 }
 
@@ -98,6 +103,11 @@ main {
   border: 2px solid #8ACE00; /* Change border color on hover */
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.list-group-item-dark a:hover {
+  letter-spacing: 2px;
+  transition: ease-in-out 0.5s;
 }
 
 /* Keyframes for slow pulsing border color and scaling effect */
@@ -11982,15 +11992,6 @@ textarea.form-control-lg {
   background-color: #8ACE00;
   color: black;
   transition: ease-in-out 0.2s;
-}
-
-.dropdown-menu {
-  position: absolute;
-  padding-top: 100px;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: 400px;
 }
 
 /*# sourceMappingURL=main.css.map */
