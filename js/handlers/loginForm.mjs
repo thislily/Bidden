@@ -1,4 +1,4 @@
-// import { loginUser } from "../api/auth/login.mjs";
+import { loginUser } from "../api/auth/login.mjs";
 
 /**
  * handle the login form submission

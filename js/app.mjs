@@ -23,4 +23,3 @@ if (loginForm) {
 
 handleNavMenuAvatar();
 
-extendProfile();
