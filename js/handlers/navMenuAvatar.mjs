@@ -14,14 +14,14 @@ export function handleNavMenuAvatar() {
   if (profile) {
     navCredits.textContent = profile.credits;
     menuCredits.textContent = profile.credits;
-    navUsernameContainer.classList.add("d-sm-flex");
+    navUsernameContainer.classList.add("d-md-flex");
     navLoginButton.classList.add("d-none");
     openMenu.classList.remove("d-none");
 
     navUsername.textContent = 'Welcome, ' + profile.name;
     openMenu.src = profile.avatar.url;
   } else {
-    navUsernameContainer.classList.remove("d-sm-flex");
+    navUsernameContainer.classList.remove("d-md-flex");
     navLoginButton.classList.remove("d-none");
     openMenu.classList.add("d-none");
   }

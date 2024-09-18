@@ -47,12 +47,12 @@
                   </div>
                 </div>
     
-                <div class="col d-flex justify-content-end align-items-start mt-3 mt-lg-0">
+                <div class="col d-flex justify-content-end align-items-start mt-3 mt-lg-0 me-2">
 
                     <!-- Avatar ++ -->
 
-                    <div class="d-none d-md-flex justify-content-center flex-column align-items-end mt-2 me-1" id="nav-username-container">
-                        <p class="text-white h5 p-0 pt-2 m-0" id="nav-username">Welcome, Lady Nameson</p>
+                    <div class="d-none justify-content-center flex-column align-items-end mt-2 me-1" id="nav-username-container">
+                        <p class="text-white h5 p-0 pt-2 m-0" id="nav-username"></p>
                         <p class="text-white fst-italic m-0">Credits: <span class="fw-semibold text-primary" id="nav-credits">?</span></p>
                     </div>
 
@@ -66,9 +66,8 @@
                         <li class="list-group-item-dark p-2 d-md-none">
                           <p class="text-white fst-italic m-0 h5">Credits: <span class="fw-semibold text-primary" id="menu-credits">?</span></p> </li>
                         <li class="list-group-item-dark p-2 "><a href="" class="text-decoration-none">View Profile <i class="bi bi-person-circle"></i></a> </li>
-                        <li class="list-group-item-dark p-2"><a href="" class="text-decoration-none">Edit Profile <i class="bi bi-pencil-square"></i></a> </li>
                         <li class="list-group-item-dark p-2"><a href="" class="text-decoration-none">Create Listing <i class="bi bi-file-earmark-plus"></i></a> </li>
-                        <li class="list-group-item-dark p-2"><a href="" class="text-decoration-none">Log out <i class="bi bi-box-arrow-left"></i></a> </li>
+                        <li class="list-group-item-dark p-2" id="logout-button"><a href="" class="text-decoration-none">Log out <i class="bi bi-box-arrow-left"></i></a> </li>
                       </ul>
                     </div>
 
@@ -125,8 +124,9 @@
                     </div>
           
                     <!-- Submit and cancel buttons inside the form -->
-                    <div class="d-flex justify-content-between border-0">
+                    <div class="d-flex align-items-center flex-column border-0">
                       <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Log in <i class="bi bi-box-arrow-in-right "></i></button>
+                      <span class="border  border-primary-subtle my-3 w-75" style="height: 1px;"></span>
                       <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle "></i></button>
                     </div>
                   </form>
@@ -210,8 +210,9 @@
                       </div>
           
                     <!-- Submit and cancel buttons inside the form -->
-                    <div class="d-flex justify-content-between border-0">
+                    <div class="d-flex align-items-center flex-column border-0">
                       <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Sign up <i class="bi bi-box-arrow-in-right "></i></button>
+                      <span class="border  border-primary-subtle my-3 w-75" style="height: 1px;"></span>
                       <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle "></i></button>
                     </div>
                   </form>
