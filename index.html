@@ -50,23 +50,47 @@
                 <div class="col d-flex justify-content-end align-items-start me-2 mt-3 mt-lg-0">
 
                     <!-- Avatar ++ -->
-<!-- 
-                    <div class="d-none d-sm-flex justify-content-center flex-column align-items-end mt-2">
-                        <p class="text-white p-0 m-0">Welcome, Lady Nameson</p>
-                        <p class="text-white fst-italic m-0">Credits: <span class="fw-bold">330</span></p>
+
+                    <div class="d-none d-sm-flex justify-content-center flex-column align-items-end mt-2 me-1" id="nav-username-container">
+                        <p class="text-white p-0 m-0" id="nav-username">Welcome, Lady Nameson</p>
+                        <p class="text-white fst-italic m-0">Credits: <span class="fw-bold" id="nav-credits">?</span></p>
                     </div>
 
-                    <img src="images/avatar.jpg" alt="avatar" class="avatar-nav ms-2 mt-md-1" id="open-menu"> -->
+                    <!-- Dropdown Button -->
+                    <div class="dropdown-center">
+                      <button class="bg-black border-0 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="images/avatar.jpg" alt="avatar" class="avatar-nav ms-2 mt-md-1 d-none" id="open-menu">
+                      </button>
+
+                      <!-- Dropdown Menu -->
+                      <ul class="dropdown-menu dropdown-menu-end me-5 pe-5 p-3 rounded-0 border-primary bg-black">
+                        <li class="list-group-item-dark p-2 "><a href="" class="text-decoration-none">View Profile <i class="bi bi-person-circle"></i></a> </li>
+                        <li class="list-group-item-dark p-2"><a href="" class="text-decoration-none">Edit Profile <i class="bi bi-pencil-square"></i></a> </li>
+                        <li class="list-group-item-dark p-2"><a href="" class="text-decoration-none">Create Listing <i class="bi bi-file-earmark-plus"></i></a> </li>
+                        <li class="list-group-item-dark p-2"><a href="" class="text-decoration-none">Log out <i class="bi bi-box-arrow-left"></i></a> </li>
+                      </ul>
+                    </div>
+
+                    <img src="images/avatar.jpg" alt="avatar" class="avatar-nav ms-2 mt-md-1 d-none" id="open-menu">
 
                     <!-- Log in Button -->
 
-                    <button type="button" class="btn btn-large border-0 rounded-0 fw-semibold" data-bs-toggle="modal" data-bs-target="#login-modal">
+                    <button type="button" class="btn btn-large border-0 rounded-0 fw-semibold" data-bs-toggle="modal" data-bs-target="#login-modal" id="nav-login-button">
                         Log in
                       </button>
 
                   </div>
-              </nav>
+            </nav>
     </header>
+
+    <!-- Dropdown Menu -->
+
+    <div class="dropdown-menu d-flex flex-column justify-content-center align-items-center bg-black text-white z-1">
+      <p class="text-white fst-italic m-0 d-none" id="menu-credits-container">Credits: <span id="menu-credits">?</span></p>
+      <ul class="list-group bg-black text-primary list-unstyled text-end">
+  
+      </ul>
+    </div>
 
         <!-- Modal -->
         <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Log in modal" aria-hidden="true">
@@ -205,7 +229,7 @@
       <a href="listing/create/index.html" class="text-decoration-none">
 
         <section
-        class="create-listing-banner bg-black d-flex justify-content-center align-content-center "
+        class="create-listing-banner bg-black d-flex justify-content-center align-content-center pt-3"
       >
         <div class="p-5">
           <p class="text-white pe-5 h4">
@@ -425,7 +449,7 @@
         </div>
 
         <div class="d-flex justify-content-center p-3">
-          <button class="btn btn-outline-primary text-blacks rounded-0 fw-semibold">
+          <button class="btn btn-outline-primary text-black rounded-0 fw-semibold">
             See More
           </button>
         </div>

@@ -37,7 +37,7 @@ form .btn {
 
 header {
   margin-bottom: 72px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #8ACE00;
 }
 
 main {
@@ -89,16 +89,32 @@ main {
   height: 72px;
   width: 72px;
   border: 2px solid white;
-  margin: 0px;
+  margin: 0;
+  animation: pulse 2s ease-in-out 20; /* Pulse over 3 seconds, repeating 20 times */
+  transition: transform 0.2s ease-in-out, border-color 0.5s ease-in-out; /* Smooth hover transition */
 }
 
 .avatar-nav:hover {
-  border: 2px solid #8ACE00;
+  border: 2px solid #8ACE00; /* Change border color on hover */
   cursor: pointer;
   transform: scale(1.1);
-  transition: ease-in-out 0.2s;
 }
 
+/* Keyframes for slow pulsing border color and scaling effect */
+@keyframes pulse {
+  0% {
+    border-color: white;
+    transform: scale(1);
+  }
+  50% {
+    border-color: #8ACE00; /* Same color as hover state */
+    transform: scale(1.1); /* Slight pulse */
+  }
+  100% {
+    border-color: white;
+    transform: scale(1);
+  }
+}
 #auction-card {
   scroll-margin-top: 120px;
 }
@@ -11966,6 +11982,15 @@ textarea.form-control-lg {
   background-color: #8ACE00;
   color: black;
   transition: ease-in-out 0.2s;
+}
+
+.dropdown-menu {
+  position: absolute;
+  padding-top: 100px;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
 }
 
 /*# sourceMappingURL=main.css.map */

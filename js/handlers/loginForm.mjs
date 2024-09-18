@@ -7,15 +7,15 @@
  */
 export const loginForm = document.querySelector("#login-form");
 
-// export function handleLoginForm() {
-//   loginForm.addEventListener("submit", function (event) {
-//     event.preventDefault();
+export function handleLoginForm() {
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-//     const profile = {
-//       email: loginForm.email.value,
-//       password: loginForm.password.value,
-//     };
+    const profile = {
+      email: loginForm.email.value,
+      password: loginForm.password.value,
+    };
 
-//     loginUser(profile);
-//   });
-// }
+    loginUser(profile);
+  });
+}
