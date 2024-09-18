@@ -6,7 +6,8 @@ import { loginModal, handleLoginModal } from "./handlers/loginModal.mjs";
 import { registerForm, handleRegForm } from "./handlers/registerForm.mjs";
 import { loginForm, handleLoginForm } from "./handlers/loginForm.mjs";
 import { handleNavMenuAvatar } from "./handlers/navMenuAvatar.mjs";
-import { extendProfile } from "./api/profile/extendProfile.mjs";
+import { handleLogoutButton } from "./handlers/logoutUser.mjs";
+
 
 if (loginModal) {
   handleLoginModal();
@@ -18,9 +19,8 @@ if (registerForm) {
 
 if (loginForm) {
   handleLoginForm();
-  extendProfile();
 }
 
 handleNavMenuAvatar();
+handleLogoutButton();
 
-extendProfile();

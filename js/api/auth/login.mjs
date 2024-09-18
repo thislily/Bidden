@@ -1,5 +1,6 @@
 import { LOGIN_URL } from "../auth/constants.mjs";
 import { headers } from "../auth/constants.mjs";
+import { extendProfile } from "../profile/extendProfile.mjs";
 
 /**
  * login user with the profile data
@@ -31,10 +32,15 @@ export async function loginUser(profile) {
       };
       localStorage.setItem("profile", JSON.stringify(user));
 
-      console.log("User logged in:", userData);
+      //extend the user profile with additional info
+      await extendProfile();
 
       //reload the page
-        window.location.reload();
+      window.location.reload();
+
+
+    console.log("User logged in successfully:", localStorage.getItem("profile"));
+
     } else {
       throw new Error("Failed to login user: " + response.statusText);
     }

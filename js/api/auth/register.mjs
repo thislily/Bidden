@@ -19,11 +19,12 @@ export async function registerUser(profile) {
     // Check if the registration was successful
     if (!response.ok) {
       const errorDetails = await response.json();
+      console.error("Registration failed. Details:", errorDetails); // Add this for detailed error logging
       throw new Error(`Failed to register user: ${errorDetails.message || response.statusText}`);
     }
 
     const userData = await response.json();
-    console.log("Registration successful:", userData);
+    console.log("Registration successful:", userData); // Log successful registration
 
     // Log the user in after successful registration
     loginUser(profile);
@@ -31,4 +32,3 @@ export async function registerUser(profile) {
     console.error(`Registration error: ${error.message}`);
   }
 }
-

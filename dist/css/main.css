@@ -35,6 +35,12 @@ form .btn {
   padding-right: 16px;
 }
 
+.logo-link:hover {
+  transform: scale(1.1);
+  transition: ease 0.2s;
+  color: #B5FF00;
+}
+
 header {
   margin-bottom: 72px;
   border-bottom: 1px solid #8ACE00;
@@ -85,12 +91,13 @@ main {
 }
 
 .avatar-nav {
+  z-index: 5;
   border-radius: 50%;
   height: 72px;
   width: 72px;
   border: 2px solid white;
   margin: 0;
-  animation: pulse 2s ease-in-out 20; /* Pulse over 3 seconds, repeating 20 times */
+  animation: wiggle 2s ease 2; /* wiggle animation */
   transition: transform 0.2s ease-in-out, border-color 0.5s ease-in-out; /* Smooth hover transition */
 }
 
@@ -100,19 +107,31 @@ main {
   transform: scale(1.1);
 }
 
-/* Keyframes for slow pulsing border color and scaling effect */
-@keyframes pulse {
+.list-group-item-dark a:hover {
+  letter-spacing: 2px;
+  transition: ease-in-out 0.2s;
+  color: #B5FF00;
+}
+
+/* Keyframes for quick wiggle effect */
+@keyframes wiggle {
   0% {
-    border-color: white;
-    transform: scale(1);
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg) scale(1.1);
+    border-color: #8ACE00;
   }
   50% {
-    border-color: #8ACE00; /* Same color as hover state */
-    transform: scale(1.1); /* Slight pulse */
+    transform: rotate(-10deg) scale(1.1);
+    border-color: #8ACE00;
+  }
+  75% {
+    border-color: #8ACE00;
+    transform: rotate(10deg) scale(1.1);
   }
   100% {
-    border-color: white;
-    transform: scale(1);
+    transform: rotate(0deg);
   }
 }
 #auction-card {
@@ -11982,15 +12001,6 @@ textarea.form-control-lg {
   background-color: #8ACE00;
   color: black;
   transition: ease-in-out 0.2s;
-}
-
-.dropdown-menu {
-  position: absolute;
-  padding-top: 100px;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: 400px;
 }
 
 /*# sourceMappingURL=main.css.map */
