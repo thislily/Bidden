@@ -7,6 +7,7 @@ import { registerForm, handleRegForm } from "./handlers/registerForm.mjs";
 import { loginForm, handleLoginForm } from "./handlers/loginForm.mjs";
 import { handleNavMenuAvatar } from "./handlers/navMenuAvatar.mjs";
 import { handleLogoutButton } from "./handlers/logoutUser.mjs";
+import { renderListings } from "./render/feed.mjs";
 
 
 if (loginModal) {
@@ -20,6 +21,11 @@ if (registerForm) {
 if (loginForm) {
   handleLoginForm();
 }
+
+if (location.pathname === "/" || location.pathname === "/index.html") {
+  renderListings();
+}
+
 
 handleNavMenuAvatar();
 handleLogoutButton();

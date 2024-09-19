@@ -1,8 +1,6 @@
-
-
-// Logout the user
 /**
  * Logout the user by clearing the token and profile from local storage
+ * and redirecting to the homepage
  */
 
 
@@ -15,7 +13,7 @@ export function logoutUser() {
     window.location.href = "/"; // Redirect to homepage, adjust URL if needed
   }
   
-
+// Handle the logout button click event
   export function handleLogoutButton() {
     const logoutButton = document.querySelector("#logout-button");
     
