@@ -8,6 +8,7 @@ export const navUsernameContainer = document.querySelector(
 );
 export const openMenu = document.querySelector("#open-menu");
 export const navLoginButton = document.querySelector("#nav-login-button");
+export const dropdownMenu = document.querySelector(".dropdown-menu");
 
 export function handleNavMenuAvatar() {
   const profile = JSON.parse(localStorage.getItem("profile"));
@@ -17,6 +18,7 @@ export function handleNavMenuAvatar() {
     navUsernameContainer.classList.add("d-md-flex");
     navLoginButton.classList.add("d-none");
     openMenu.classList.remove("d-none");
+    dropdownMenu.classList.remove("d-none");
 
     navUsername.textContent = 'Welcome, ' + profile.name;
     openMenu.src = profile.avatar.url;
@@ -24,5 +26,7 @@ export function handleNavMenuAvatar() {
     navUsernameContainer.classList.remove("d-md-flex");
     navLoginButton.classList.remove("d-none");
     openMenu.classList.add("d-none");
+    dropdownMenu.classList.add("d-none");
+
   }
 }
