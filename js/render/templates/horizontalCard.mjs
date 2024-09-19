@@ -1,87 +1,99 @@
+import { checkBiddingStatus } from "../templates/isActive.mjs";
+import { timeAgo } from "../templates/timeAgo.mjs";
+
+/**
+ * function that returns a horizontal card template
+ * @param {Object} listing - the listing data
+ * @returns {HTMLDivElement} - the card template
+ */
+
 //template for horizontal card
+export function horizontalCard(listing) {
+  const card = document.createElement("div");
+  card.classList.add("card", "mb-3", "thick-shadow", "rounded-0", "col-10", "col-sm-8");
+  card.style.maxWidth = "560px";
 
-export function horizontalCard(data) {
-const card = document.createElement("div");
-card.classList.add("card", "mb-3", "thick-shadow", "rounded-0", "col-10", "col-sm-8");
-card.style.maxWidth = "560px";
+  const cardLink = document.createElement("a");
+  // Include the listing ID in the query string
+  cardLink.href = `../listing/index.html?${listing.id}`;
+  cardLink.classList.add("text-black", "text-decoration-none");
+  cardLink.style.cursor = "pointer";
+  card.appendChild(cardLink);
 
-const cardLink = document.createElement("a");
-cardLink.href = "../listing/index.html";
-cardLink.classList.add("text-black", "text-decoration-none");
-cardLink.style.cursor = "pointer";
-card.appendChild(cardLink);
+  const cardRow = document.createElement("div");
+  cardRow.classList.add("row", "g-0");
+  cardLink.appendChild(cardRow);
 
-const cardRow = document.createElement("div");
-cardRow.classList.add("row", "g-0");
-cardLink.appendChild(cardRow);
+  const cardCol1 = document.createElement("div");
+  cardCol1.classList.add("col-md-6");
+  cardCol1.style.maxHeight = "360px";
+  cardRow.appendChild(cardCol1);
 
-const cardCol1 = document.createElement("div");
-cardCol1.classList.add("col-md-6");
-cardCol1.style.maxHeight = "360px";
-cardRow.appendChild(cardCol1);
+  const cardImgOverlay = document.createElement("div");
+  cardImgOverlay.classList.add("card-img-overlay");
+  cardCol1.appendChild(cardImgOverlay);
 
-const cardImgOverlay = document.createElement("div");
-cardImgOverlay.classList.add("card-img-overlay");
-cardCol1.appendChild(cardImgOverlay);
+  // Check if bidding has ended using endsAt
+  const cardText = document.createElement("p");
+  cardText.classList.add("card-text", "text-primary", "h4", "fw-semibold", "bg-black", "p-2");
+  cardText.style.maxWidth = "fit-content";
+  cardText.textContent = checkBiddingStatus(listing.endsAt); // Use endsAt for bidding status
+  cardImgOverlay.appendChild(cardText);
 
-const cardText = document.createElement("p");
-cardText.classList.add("card-text", "text-primary", "h4", "fw-semibold", "bg-black", "p-2");
-cardText.style.maxWidth = "fit-content";
-cardText.textContent = data.price;
-cardImgOverlay.appendChild(cardText);
+  // Check if there's media, otherwise set a default image
+  const cardImg = document.createElement("img");
+  if (listing.media.length > 0) {
+    cardImg.src = listing.media[0].url; // Ensure 'url' is lowercase, not 'URL'
+    cardImg.alt = listing.media[0].alt || "Listing image";
+  } else {
+    cardImg.src = "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg"; // Use a default image if no media
+    cardImg.alt = "Default listing image";
+  }
+  cardImg.classList.add("img-fluid", "object-fit-cover", "rounded-0");
+  cardImg.style.height = "360px";
+  cardImg.style.width = "100%";
+  cardCol1.appendChild(cardImg);
 
-const cardImg = document.createElement("img");
-cardImg.src = data.image;
-cardImg.classList.add("img-fluid", "object-fit-cover", "rounded-0");
-cardImg.style.minHeight = "259px";
-cardImg.style.height = "100%";
-cardImg.style.width = "100%";
-cardImg.alt = data.alt;
-cardCol1.appendChild(cardImg);
+  const cardCol2 = document.createElement("div");
+  cardCol2.classList.add("col-md-6");
+  cardRow.appendChild(cardCol2);
 
-const cardCol2 = document.createElement("div");
-cardCol2.classList.add("col-md-6");
-cardRow.appendChild(cardCol2);
+  const cardBody = document.createElement("div");
+  cardBody.classList.add("card-body", "d-flex", "flex-column", "justify-content-between", "h-100");
+  cardCol2.appendChild(cardBody);
 
-const cardBody = document.createElement("div");
-cardBody.classList.add("card-body", "d-flex", "flex-column", "justify-content-between", "h-100");
-cardCol2.appendChild(cardBody);
+  const cardTitle = document.createElement("h2");
+  cardTitle.classList.add("card-title", "h5");
+  cardTitle.textContent = listing.title;
+  cardBody.appendChild(cardTitle);
 
-const cardTitle = document.createElement("h2");
-cardTitle.classList.add("card-title", "h5");
-cardTitle.textContent = data.title;
-cardBody.appendChild(cardTitle);
+  const cardText2 = document.createElement("p");
+  cardText2.classList.add("card-text", "listing-description-truncate");
+  cardText2.textContent = listing.description;
+  cardBody.appendChild(cardText2);
 
-const cardText2 = document.createElement("p");
-cardText2.classList.add("card-text");
-cardText2.textContent = data.description;
-cardBody.appendChild(cardText2);
+  const cardText3 = document.createElement("p");
+  cardText3.classList.add("card-text", "text-secondary-emphasis", "fst-italic");
+  cardBody.appendChild(cardText3);
 
-const cardText3 = document.createElement("p");
-cardText3.classList.add("card-text", "text-secondary-emphasis", "fst-italic");
-cardBody.appendChild(cardText3);
+  // Create small elements for created and updated, using timeAgo to display time
+  const cardText4 = document.createElement("p");
+  cardText4.classList.add("card-text", "pt-2");
+  cardBody.appendChild(cardText4);
 
-const cardText4 = document.createElement("p");
-cardText4.classList.add("card-text", "pt-2");
-cardBody.appendChild(cardText4);
+  const cardText5 = document.createElement("small");
+  cardText5.classList.add("text-body-secondary", "fst-italic");
 
-const cardText5 = document.createElement("small");
-cardText5.classList.add("text-body-secondary", "fst-italic");
-cardText5.textContent = "Created 7 hours ago";
-cardText4.appendChild(cardText5);
+  if (listing.created === listing.updated) {
+    cardText5.textContent = `${timeAgo(listing.created)}`;
+  } else {
+    cardText5.textContent = `${timeAgo(listing.created)}, updated: ${timeAgo(listing.updated)}`;
+  }
 
-const cardText6 = document.createElement("br");
-cardText4.appendChild(cardText6);
+  cardText4.appendChild(cardText5);
 
-const cardText7 = document.createElement("small");
-cardText7.classList.add("text-body-secondary", "fst-italic");
-cardText7.textContent = "Last updated 3 mins ago";
-cardText4.appendChild(cardText7);
-
-return card;
+  return card;
 }
-
-
 
 /* <div
 class="card mb-3 thick-shadow rounded-0 col-10 col-sm-8"
