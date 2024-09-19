@@ -1,10 +1,10 @@
-import { PROFILES_URL } from "../auth/constants.mjs";
-import { headers } from "../auth/constants.mjs";
+import { PROFILES_URL, headers } from "../auth/constants.mjs";
 
 /**
  * Fetch the user profile from the API using the username stored in local storage
  * and update the profile in local storage with additional info.
  * @returns {Object} - The updated user profile data
+ * @throws {Error} - if the profile is not found in local storage or the API response is not ok
  */
 
 export async function extendProfile() {

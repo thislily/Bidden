@@ -5,6 +5,7 @@ import { extendProfile } from "../profile/extendProfile.mjs";
 /**
  * login user with the profile data
  * @param {Object} profile - the user profile data
+ * @throws {Error} - if the user is not logged in
  */
 
 export async function loginUser(profile) {

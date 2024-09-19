@@ -1,4 +1,8 @@
-//check if the user is logged in via local storage, then change the nav menu to show the user's avatar
+
+/**
+ * @module navMenuAvatar
+ * @description This module is responsible for handling the user avatar in the navigation menu.
+ */
 
 export const navUsername = document.querySelector("#nav-username");
 export const navCredits = document.querySelector("#nav-credits");
@@ -10,9 +14,12 @@ export const openMenu = document.querySelector("#open-menu");
 export const navLoginButton = document.querySelector("#nav-login-button");
 export const dropdownMenu = document.querySelector(".dropdown-menu");
 
+
+// Handle the user avatar in the navigation menu
 export function handleNavMenuAvatar() {
   const profile = JSON.parse(localStorage.getItem("profile"));
   if (profile) {
+    // Update the user avatar and credits in the navigation menu
     navCredits.textContent = profile.credits;
     menuCredits.textContent = profile.credits;
     navUsernameContainer.classList.add("d-md-flex");
@@ -23,6 +30,7 @@ export function handleNavMenuAvatar() {
     navUsername.textContent = 'Welcome, ' + profile.name;
     openMenu.src = profile.avatar.url;
   } else {
+    // Hide the user avatar and credits in the navigation menu
     navUsernameContainer.classList.remove("d-md-flex");
     navLoginButton.classList.remove("d-none");
     openMenu.classList.add("d-none");

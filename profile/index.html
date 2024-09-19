@@ -20,51 +20,200 @@
       href="../node_modules/bootstrap-icons/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="../dist/css/main.css" />
-    <title>Listings</title>
+    <title>Single Listing</title>
+    <script type="module" src="../js/app.mjs"></script>
   </head>
   <body class="bg-black">
-    <header class="bg-black container-xxl px-2 px-xxl-0  fixed-top">
+    <!-- Header -->
+
+    <header class="bg-black container-xxl px-2 px-xxl-0 pe-0 fixed-top">
         
-            <nav class="navbar bg-black pt-0 pt-md-1 d-flex justify-content-between align-items-start align-items-lg-center">
-                <div class="container col d-flex justify-content-start align-items-start align-items-md-center flex-column flex-md-row p-0">
-                  <a class="logo-link" href="../index.html">BIDDEN</a>
-                  
-                  <form class="d-flex align-items-center" role="search">
-                    <input
-                      class="form-control rounded-0 me-0"
-                      type="search"
-                      placeholder="Search"
-                      aria-label="Search"
-                    />
-                    <button
-                      class="btn bg-secondary-subtle rounded-0 ms-0"
-                      type="submit"
-                    >
-                      <i class="bi bi-search h4"></i>
-                    </button>
-                  </form>
+      <nav class="navbar bg-black pt-0 pt-md-1 d-flex justify-content-between align-items-start align-items-lg-center">
+          <div class="container col d-flex justify-content-start align-items-start align-items-md-center flex-column flex-md-row p-0">
+            <a class="logo-link" href="../index.html">BIDDEN</a>
+            
+            <form class="d-flex align-items-center" role="search">
+              <input
+                class="form-control rounded-0 me-0"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                class="btn bg-secondary-subtle rounded-0 ms-0"
+                type="submit"
+              >
+                <i class="bi bi-search h4"></i>
+              </button>
+            </form>
+            </div>
+          </div>
+
+          <div class="col d-flex justify-content-end align-items-start mt-3 mt-lg-0 me-2">
+
+              <!-- Avatar ++ -->
+
+              <div class="d-none justify-content-center flex-column align-items-end mt-2 me-1" id="nav-username-container">
+                  <p class="text-white h5 p-0 pt-2 m-0" id="nav-username"></p>
+                  <p class="text-white fst-italic m-0">Credits: <span class="fw-semibold text-primary" id="nav-credits">?</span></p>
+              </div>
+
+              <!-- Dropdown Button -->
+              <div class="dropdown-center ">
+                  <img src="" alt="avatar" class="dropdown-toggle avatar-nav ms-2 mt-md-1 d-none me-2" id="open-menu"  data-bs-toggle="dropdown">
+            
+
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu dropdown-menu-end mt-3 mt-md-2 z-2 pe-5 p-3 text-end rounded-0 border-primary bg-black border-top-0" style="width: 300px;">
+                  <li class="list-group-item-dark p-2 d-md-none">
+                    <p class="text-white fst-italic m-0 h5">Credits: <span class="fw-semibold text-primary" id="menu-credits">?</span></p> </li>
+                  <li class="list-group-item-dark p-2 "><a href="" class="text-decoration-none">View Profile <i class="bi bi-person-circle"></i></a> </li>
+                  <li class="list-group-item-dark p-2"><a href="" class="text-decoration-none">Create Listing <i class="bi bi-file-earmark-plus"></i></a> </li>
+                  <li class="list-group-item-dark p-2" id="logout-button"><a href="" class="text-decoration-none">Log out <i class="bi bi-box-arrow-left"></i></a> </li>
+                </ul>
+              </div>
+
+              <!-- Log in Button -->
+
+              <button type="button" class="btn btn-large border-0 rounded-0 fw-semibold" data-bs-toggle="modal" data-bs-target="#login-modal" id="nav-login-button">
+                  Log in
+                </button>
+
+            </div>
+      </nav>
+</header>
+
+        <!-- Modal -->
+        <div class="modal fade" id="login-modal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="Log in modal" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content rounded-0 thick-shadow-red border-black pb-5" >
+              <div class="d-flex border-0 p-0">
+                <button class="w-50 btn btn-secondary fw-semibold rounded-0 shadow-subtle p-3" id="view-login-button">
+                  Already have an account?<br><i class="bi bi-person h1"></i>
+                </button>
+                <button class="w-50 btn btn-dark rounded-0 p-3" id="view-register-button">
+                  Create an account<br><i class="bi bi-person-plus h1"></i>
+                </button>
+              </div>
+              <div class="modal-body border-0 mx-auto" style="max-width: 360px; width: 80%;">
+                <h1 class="modal-title h2 fw-bold pt-3" id="login-label">Log in here</h1>
+        
+                <!--Login Form starts here -->
+                <form class="needs-validation d-block" id="login-form">
+                  <div class="mb-3">
+                    <label for="email" class="form-label mb-0">Email</label>
+                    <input type="text" class="form-control rounded-0 border-black" id="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(noroff\.no|stud\.noroff\.no)$">
+                    <div class="invalid-feedback">
+                      Please enter a valid @noroff.no or @stud.noroff.no email.
+                    </div>
                   </div>
-                </div>
-    
-                <div class="col d-flex justify-content-end align-items-start me-2 mt-3 mt-lg-0">
+        
+                  <div class="mb-3">
+                    <label for="password" class="form-label mb-0">Password</label>
+                    <input type="password" class="form-control rounded-0 border-black" id="password" name="password" required>
+                    <div class="invalid-feedback">
+                      Please enter your password.
+                    </div>
+                  </div>
+        
+                  <!-- Submit and cancel buttons inside the form -->
+                  <div class="d-flex align-items-center flex-column border-0">
+                    <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Log in <i class="bi bi-box-arrow-in-right "></i></button>
+                    <span class="border  border-primary-subtle my-3 w-75" style="height: 1px;"></span>
+                    <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle "></i></button>
+                  </div>
+                </form>
 
-                    <!-- Avatar ++ -->
+                <!--Register Form starts here -->
 
-                    <div class="d-none d-sm-flex justify-content-center flex-column align-items-end mt-2">
-                        <p class="text-white p-0 m-0">Welcome, Lady Nameson</p>
-                        <p class="text-white fst-italic m-0">Credits: <span class="fw-bold">330</span></p>
+
+                <form class="needs-validation d-none" id="register-form">
+
+                  <div class="mb-3">
+                    <label for="regName" class="form-label mb-0">Name*</label>
+                    <input                  
+                    type="text"
+                    name="regName"
+                    class="form-control rounded-0 border-black"
+                    id="regName"
+                    placeholder="Name123"
+                    pattern="[A-Za-z0-9_]+"
+                    title="Username must be 1-40 characters long and contain only letters, numbers, and underscores."
+                    required>
+                  </div>
+                
+
+                  <div class="mb-3">
+                    <label for="regEmail" class="form-label mb-0">Email*</label>
+                    <input                     
+                    type="email"
+                    name="regEmail"
+                    class="form-control rounded-0 border-black"
+                    id="regEmail"
+                    placeholder="name@noroff.no"
+                    pattern="^[^@]+@(stud\.|)(noroff\.no)$"
+                    title="Email must end with @noroff.no or @stud.noroff.no"
+                    required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="bio" class="form-label mb-0">Bio</label>
+                    <input                     
+                    type="textarea"
+                    name="bio"
+                    class="form-control rounded-0 border-black"
+                    id="bio"
+                    placeholder="A little about yourself"
+                    title="Please enter some information about yourself.">
+                  </div>  
+
+                  <div class="mb-3">
+                      <label for="avatar" class="form-label mb-0">Avatar</label>
+                      <input                     
+                      type="url"
+                      name="avatar"
+                      class="form-control rounded-0 border-black"
+                      id="avatar"
+                      placeholder="Image URL"
+                      title="Please enter a valid URL.">
+                    </div>               
+
+                  <div class="mb-3">
+                      <label for="banner" class="form-label mb-0">Banner</label>
+                      <input                     
+                      type="url"
+                      name="banner"
+                      class="form-control rounded-0 border-black"
+                      id="banner"
+                      placeholder="Image URL"
+                      title="Please enter a valid URL.">
                     </div>
 
-                    <img src="../images/avatar.jpg" alt="avatar" class="avatar-nav ms-2 mt-md-1" id="open-menu">
-
-                    <!-- Log in Button -->
-<!-- 
-                    <button class="btn btn-large border-0 rounded-0 fw-semibold">
-                      Log in
-                    </button> -->
+                    <div class="mb-3">
+                      <label for="regPassword" class="form-label mb-0">Password*</label>
+                      <input                    
+                      type="password"
+                      name="regPassword"
+                      class="form-control rounded-0 border-black"
+                      id="regPassword"
+                      placeholder="Password"
+                      minlength="8"
+                      title="Password must be at least 8 characters long"
+                      required>
+                    </div>
+        
+                  <!-- Submit and cancel buttons inside the form -->
+                  <div class="d-flex align-items-center flex-column border-0">
+                    <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Sign up <i class="bi bi-box-arrow-in-right "></i></button>
+                    <span class="border  border-primary-subtle my-3 w-75" style="height: 1px;"></span>
+                    <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle "></i></button>
                   </div>
-              </nav>
-    </header>
+                </form>
+                
+              </div>
+            </div>
+          </div>
+        </div>
 
     <main class="bg-white container-xxl p-0">
 
@@ -100,103 +249,7 @@
 
     </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Log in modal" aria-hidden="true">
-          <div class="modal-dialog ">
-            <div class="modal-content pb-5 rounded-0 thick-shadow-red border-black" >
-              <div class="d-flex border-0 p-0">
-                <button class="w-50 btn btn-secondary fw-semibold rounded-0 shadow-subtle p-3" id="view-login-button">
-                  Already have an account?<br><i class="bi bi-person h1"></i>
-                </button>
-                <button class="w-50 btn btn-dark rounded-0 p-3" id="view-register-button">
-                  Create an account<br><i class="bi bi-person-plus h1"></i>
-                </button>
-              </div>
-              <div class="modal-body border-0 mx-auto" style="max-width: 360px; width: 80%;">
-                <h1 class="modal-title h2 fw-bold pt-3" id="login-label">Log in here</h1>
-        
-                <!--Login Form starts here -->
-                <form class="needs-validation d-block" id="login-form" novalidate>
-                  <div class="mb-3">
-                    <label for="email" class="form-label mb-0">Email</label>
-                    <input type="text" class="form-control rounded-0 border-black" id="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(noroff\.no|stud\.noroff\.no)$">
-                    <div class="invalid-feedback">
-                      Please enter a valid @noroff.no or @stud.noroff.no email.
-                    </div>
-                  </div>
-        
-                  <div class="mb-3">
-                    <label for="password" class="form-label mb-0">Password</label>
-                    <input type="password" class="form-control rounded-0 border-black" id="password" name="password" required>
-                    <div class="invalid-feedback">
-                      Please enter your password.
-                    </div>
-                  </div>
-        
-                  <!-- Submit and cancel buttons inside the form -->
-                  <div class="d-flex justify-content-between border-0">
-                    <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Log in</button>
-                    <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind</button>
-                  </div>
-                </form>
 
-                <!--Register Form starts here -->
-
-
-                <form class="needs-validation d-none" id="register-form" novalidate>
-
-                  <div class="mb-3">
-                    <label for="name" class="form-label mb-0">Name</label>
-                    <input type="text" class="form-control rounded-0 border-black" id="name" name="name" required>
-                    <div class="invalid-feedback">
-                      Please enter your name.
-                    </div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="email" class="form-label mb-0">Email</label>
-                    <input type="text" class="form-control rounded-0 border-black" id="reg-email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(noroff\.no|stud\.noroff\.no)$">
-                    <div class="invalid-feedback">
-                      Please enter a valid @noroff.no or @stud.noroff.no email.
-                    </div>
-                  </div>
-        
-                  <div class="mb-3">
-                    <label for="password" class="form-label mb-0">Password</label>
-                    <input type="password" class="form-control rounded-0 border-black" id="reg-password" name="password" required>
-                    <div class="invalid-feedback">
-                      Please enter your password.
-                    </div>
-                  </div>
-
-                  <div class="mb-3">
-                      <label for="avatar" class="form-label mb-0">Avatar URL</label>
-                      <input type="url" class="form-control rounded-0 border-black" id="avatar" name="avatar">
-                      <div class="invalid-feedback">
-                        Please enter a valid image URL.
-                      </div>
-                    </div>               
-
-                  <div class="mb-3">
-                      <label for="banner" class="form-label mb-0">Banner URL</label>
-                      <input type="url" class="form-control rounded-0 border-black" id="banner" name="banner">
-                      <div class="invalid-feedback">
-                        Please enter a valid image URL.
-                      </div>
-                    </div>
-                 
-        
-                  <!-- Submit and cancel buttons inside the form -->
-                  <div class="d-flex justify-content-between border-0">
-                    <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Sign up</button>
-                    <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind</button>
-                  </div>
-                </form>
-                
-              </div>
-            </div>
-          </div>
-        </div>
 
     <!-- Profile Listings -->
 
@@ -251,7 +304,11 @@
     >
       <a href="../listing/index.html" class="text-black text-decoration-none">
         <div class="row g-0">
-          <div class="col-md-4" style="max-height: 360px">
+          <div class="col-md-6" style="max-height: 360px">
+            <!-- card-img-overlay -->
+            <div class="card-img-overlay">
+              <p class="card-text text-primary h4 fw-semibold bg-black p-2" style="max-width: fit-content; ">75</p>
+            </div>
             <img
               src="../images/item.jpg"
               class="img-fluid object-fit-cover rounded-0"
@@ -259,22 +316,22 @@
               alt="its a lamp"
             />
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Cute Lamp</h5>
+          <div class="col-md-6 ">
+            <div class="card-body d-flex flex-column justify-content-between h-100">
+              <h2 class="card-title h5">Cute Lamp</h2>
               <p class="card-text">Just a cutie pie little lamp.</p>
-              <p class="card-text fw-semibold">bid @ 75 credits</p>
               <p class="card-text text-secondary-emphasis fst-italic">
                 <span class="text-decoration-underline">lamp</span>,
                 <span class="text-decoration-underline">cute</span>,
                 <span class="text-decoration-underline">cutelamp</span>
               </p>
-              <p class="card-text">
-                <small class="text-body-secondary"
-                  >Created 7 hours ago <br />
-                  Last updated 3 mins ago</small
-                >
+              <p class="card-text pt-2">
+                <small class="text-body-secondary fst-italic"
+                  >Created 7 hours ago </small>
+                  <br>
+                <small class="text-body-secondary fst-italic">Last updated 3 mins ago</small>
               </p>
+
             </div>
           </div>
         </div> 

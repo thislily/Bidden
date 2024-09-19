@@ -1,8 +1,9 @@
-import { PROFILES_URL } from "../auth/constants.mjs";
+import { PROFILES_URL, headers } from "../auth/constants.mjs";
 
 /**
- * fetch user pofile from the api using the user name
+ * fetch user pofile from the api using the user name from the query string in the url
  * @returns {Object} - the user profile data
+ * @throws {Error} - if the profile is not found in the api response
  */
 
 export async function fetchProfile() {
@@ -10,8 +11,7 @@ export async function fetchProfile() {
         // get the user name from the query string 
         const queryParams = new URLSearchParams(window.location.search);
         const userName = queryParams.get('name');
-        const getProfile = PROFILE_URL + "/" + userName + "?_posts=true&_followers=true&_following=true";
-        const profile = JSON.parse(localStorage.getItem("profile"));
+        const getProfile = `${PROFILES_URL}/${userName}?_wins=true&_listings=true`;
 
         // get the token from local storage
         const token = localStorage.getItem("token");
@@ -30,9 +30,10 @@ export async function fetchProfile() {
             throw new Error("Failed to fetch profile: " + response.statusText);
         }
 
-        const profileData = await response.json();
+        const profileData = await response.json(); 
 
-        return profileData;
+        return profileData; // return the profile data for further use if needed
+
     } catch (error) {
         console.error(error);
     }

@@ -4,8 +4,6 @@ import { loginForm } from "./loginForm.mjs";
 
 /**
  * handle the login modal
- * 
- * 
  */
 
 export const loginModal = document.querySelector("#login-modal");
@@ -14,7 +12,10 @@ export const viewRegisterButton = document.querySelector("#view-register-button"
 export const loginLabel = document.querySelector("#login-label");
 
 
+// Handle the login modal
 export function handleLoginModal() {
+
+    // Add event listeners to the login and register buttons
     viewRegisterButton.addEventListener("click", function () {
         registerForm.classList.remove("d-none");    
         loginForm.classList.add("d-none");
@@ -30,6 +31,7 @@ export function handleLoginModal() {
     }
 );
 
+    // reverse the above event listeners
     viewLoginButton.addEventListener("click", function () {
         loginForm.classList.remove("d-none");
         registerForm.classList.add("d-none");
