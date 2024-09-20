@@ -21,7 +21,7 @@
     />
     <link rel="stylesheet" href="../dist/css/main.css" />
     <script type="module" src="../js/app.mjs"></script>
-    <title>Profile</title>
+    <title>Listing</title>
   </head>
   <body class="bg-black">
     <!-- Header -->
@@ -217,7 +217,7 @@
 
     <main class="bg-white container-xxl p-0">
 
-      <section class="container-xxl bg-white pt-5 pt-lg-1">
+      <section class="container-xxl bg-white pt-5 pt-lg-1" id="single-listing-container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
               <li class="breadcrumb-item text-secondary"><a href="../index.html">All Listings</a></li>
@@ -229,46 +229,7 @@
         <!-- Single Listing  -->
 
         <div class="container-xxl bg bg-white d-flex flex-wrap justify-content-center align-items-start gap-3 my-4 mb-5">
-            <div class="card border-1 border-black rounded-0 thick-shadow-no-hover" style="width: 18rem;">
-                <h1 class="card-title text-center h3 pt-1">Cute Lamp</h1>
-                <img src="../images/item.jpg" class="card-img" alt="cute lamp">
-                <div class="card-img-overlay d-block d-md-none">
-                    <a href="#auction-card" class="btn btn-outline-primary text-black rounded-0 my-5">Bid Now</a>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Just a cutie pie little lamp.</p>
-                    <p class="card-text text-secondary-emphasis fst-italic">
-                      <span class="text-decoration-underline">lamp</span>,
-                      <span class="text-decoration-underline">cute</span>,
-                      <span class="text-decoration-underline">cutelamp</span>
-                    </p>
-                    <p class="card-text">
-                      <small class="text-body-secondary"
-                        >Created 7 hours ago <br />
-                        Last updated 3 mins ago</small
-                      >
-                    </p>
-                </div>
-            </div>
 
-            <div class="card border-1 border-black rounded-0 thick-shadow-no-hover" style="width: 18rem;" id="auction-card">
-                <div class="border-bottom border-secondary-subtle bg-light ">
-                    <h2 class="card-title h5 p-3 pb-0">Active Bidding</h2>
-                    <p class="fst-italic ps-3">Bidding ends in 2 hours</p>
-                </div>
-
-                <div class="d-flex justify-content-start align-items-center p-3">
-                    <img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">
-                    <input type="text" name="bid" id="bid" class="rounded-0 border-1 me-2" style="width: 80px; height: 38px;">
-                    <button class="btn btn-outline-primary text-black rounded-0">Bid</button>
-                </div>
-           
-                <ul class="list-group list-group-flush gap-2 pb-2 border-0">
-                    <li class="list-group-item bg-secondary-subtle py-1"><img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">22 Credits</li>
-                    <li class="list-group-item bg-secondary-subtle"> <img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">26 Credits</li>
-                    <li class="list-group-item bg-primary-subtle border-primary border-1 border-start-0 border-end-0 rounded-0"><img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">31 Credits <span class="fst-italic fw-semibold">WINNING</span></li>
-                  </ul>
-            </div>
 
         </div>
 

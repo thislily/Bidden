@@ -15,7 +15,7 @@ export function horizontalCard(listing) {
 
   const cardLink = document.createElement("a");
   // Include the listing ID in the query string
-  cardLink.href = `../listing/index.html?${listing.id}`;
+  cardLink.href = `../listing/index.html?id=${listing.id}`;
   cardLink.classList.add("text-black", "text-decoration-none");
   cardLink.style.cursor = "pointer";
   card.appendChild(cardLink);
@@ -35,8 +35,13 @@ export function horizontalCard(listing) {
 
   // Check if bidding has ended using endsAt
   const cardText = document.createElement("p");
-  cardText.classList.add("card-text", "text-primary", "h4", "fw-semibold", "bg-black", "p-2");
+  cardText.classList.add("card-text", "h4", "fw-semibold", "p-2");
   cardText.style.maxWidth = "fit-content";
+  if (checkBiddingStatus(listing.endsAt) === "Active") {
+    cardText.classList.add("bg-primary", "text-black");
+  } else {
+    cardText.classList.add("bg-black", "text-primary");
+  }
   cardText.textContent = checkBiddingStatus(listing.endsAt); // Use endsAt for bidding status
   cardImgOverlay.appendChild(cardText);
 
@@ -63,7 +68,7 @@ export function horizontalCard(listing) {
   cardCol2.appendChild(cardBody);
 
   const cardTitle = document.createElement("h2");
-  cardTitle.classList.add("card-title", "h5");
+  cardTitle.classList.add("card-title", "h3");
   cardTitle.textContent = listing.title;
   cardBody.appendChild(cardTitle);
 
@@ -73,7 +78,8 @@ export function horizontalCard(listing) {
   cardBody.appendChild(cardText2);
 
   const cardText3 = document.createElement("p");
-  cardText3.classList.add("card-text", "text-secondary-emphasis", "fst-italic");
+  cardText3.classList.add("card-text", "text-secondary-emphasis", "fst-italic", "fw-semibold");
+  cardText3.textContent ="Bids so far: " + listing._count.bids;
   cardBody.appendChild(cardText3);
 
   // Create small elements for created and updated, using timeAgo to display time
@@ -81,13 +87,20 @@ export function horizontalCard(listing) {
   cardText4.classList.add("card-text", "pt-2");
   cardBody.appendChild(cardText4);
 
-  const cardText5 = document.createElement("small");
+  const cardText5 = document.createElement("p");
   cardText5.classList.add("text-body-secondary", "fst-italic");
-
+  cardText5.style.fontSize = "0.9rem";
   if (listing.created === listing.updated) {
-    cardText5.textContent = `${timeAgo(listing.created)}`;
+    cardText5.textContent = `Listed: ${timeAgo(listing.created)}`;
   } else {
-    cardText5.textContent = `${timeAgo(listing.created)}, updated: ${timeAgo(listing.updated)}`;
+    cardText5.textContent += `Listed: ${timeAgo(listing.created)}`
+    const br = document.createElement("br");
+    cardText5.appendChild(br);
+    const cardText6 = document.createElement("p");
+    cardText6.classList.add("text-body-secondary", "fst-italic");
+    cardText6.style.fontSize = "0.9rem";
+    cardText6.textContent += `Updated ${timeAgo(listing.updated)}`;
+    cardText5.appendChild(cardText6);
   }
 
   cardText4.appendChild(cardText5);

@@ -8,6 +8,7 @@ import { loginForm, handleLoginForm } from "./handlers/loginForm.mjs";
 import { handleNavMenuAvatar } from "./handlers/navMenuAvatar.mjs";
 import { handleLogoutButton } from "./handlers/logoutUser.mjs";
 import { renderListings } from "./render/feed.mjs";
+import { displaySingleListing } from "./render/listing.mjs";
 
 
 if (loginModal) {
@@ -24,6 +25,10 @@ if (loginForm) {
 
 if (location.pathname === "/" || location.pathname === "/index.html") {
   renderListings();
+}
+
+if (location.pathname === "/listing/index.html" || location.pathname === "/listing/") {
+  displaySingleListing();
 }
 
 
