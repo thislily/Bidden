@@ -9,5 +9,3 @@ export function checkBiddingStatus(endsAt) {
   
     return currentTime >= endTime ? "Ended" : "Active";
   }
-  
-//function that 
