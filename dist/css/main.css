@@ -12043,4 +12043,26 @@ textarea.form-control-lg {
   transition: ease-in-out 0.2s;
 }
 
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-outline-primary {
+  color: black;
+  background-color: white;
+  border-color: #8ACE00;
+}
+
+.btn-outline-primary:hover {
+  color: black;
+  background-color: #8ACE00;
+  border-color: #8ACE00;
+}
+
 /*# sourceMappingURL=main.css.map */

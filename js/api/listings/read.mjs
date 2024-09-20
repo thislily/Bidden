@@ -28,3 +28,28 @@ export async function fetchListings() {
     }
 
 }
+
+
+export async function fetchSingleListing() {
+    const queryParams = new URLSearchParams(window.location.search);
+    const id = queryParams.get("id");
+    try {
+        const response = await fetch(`${LISTINGS_URL}/${id}?_bids=true&_seller=true`, {
+            method: "GET",
+            headers: headers()
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch listing: " + response.statusText);
+        }
+
+        const listingData = await response.json();
+
+        console.log("Listing fetched successfully:", listingData);
+
+        return listingData;
+
+    } catch (error) {
+        console.error(error);
+    }
+}
