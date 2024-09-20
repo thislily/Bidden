@@ -39,14 +39,17 @@
                       type="search"
                       placeholder="Search"
                       aria-label="Search"
+                      id="search-bar"
                     />
                     <button
                       class="btn bg-secondary-subtle rounded-0 ms-0"
                       type="submit"
+                      id="search-button"
                     >
                       <i class="bi bi-search h4"></i>
                     </button>
                   </form>
+                  
                   </div>
                 </div>
     
@@ -68,7 +71,7 @@
                       <ul class="dropdown-menu dropdown-menu-end mt-3 mt-md-2 z-2 pe-5 p-3 text-end rounded-0 border-primary bg-black border-top-0" style="width: 300px;">
                         <li class="list-group-item-dark p-2 d-md-none">
                           <p class="text-white fst-italic m-0 h5">Credits: <span class="fw-semibold text-primary" id="menu-credits">?</span></p> </li>
-                        <li class="list-group-item-dark p-2 "><a href="" class="text-decoration-none">View Profile <i class="bi bi-person-circle"></i></a> </li>
+                        <li class="list-group-item-dark p-2 "><a href="" class="text-decoration-none" id="profile-link">View Profile <i class="bi bi-person-circle"></i></a> </li>
                         <li class="list-group-item-dark p-2"><a href="" class="text-decoration-none">Create Listing <i class="bi bi-file-earmark-plus"></i></a> </li>
                         <li class="list-group-item-dark p-2" id="logout-button"><a href="" class="text-decoration-none">Log out <i class="bi bi-box-arrow-left"></i></a> </li>
                       </ul>
@@ -249,10 +252,11 @@
           <select
             class="form-select rounded-0 mb-3 border-black"
             aria-label="Default select example"
+            id="filter-listings"
           >
             <option selected>Filter<i class="bi bi-chevron-down"></i></option>
+            <option value="">All Auctions</option>
             <option value="1">Active Auctions</option>
-            <option value="2">Closed Auctions</option>
           </select>
         </div>
 
@@ -450,14 +454,14 @@
 
       </section>
       <div class="d-flex justify-content-center p-3">
-        <button class="btn btn-outline-primary text-black rounded-0 fw-semibold">
+        <button class="btn btn-outline-primary text-black rounded-0 fw-semibold" id="see-more">
           See More
         </button>
       </div>
     </main>
 
     <footer
-      class="bg-black text-white container-xxl d-flex justify-content-between align-items-center p-2 px-3"
+      class="bg-black text-white container-xxl d-flex justify-content-between align-items-center p-2 px-3 sticky-bottom"
     >
       <p class="fw-semibold" style="font-size: 12px">
         ©2024 <br />

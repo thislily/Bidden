@@ -5,7 +5,6 @@
  */
 
 
- 
 export function formatTimeRemaining(endTime) {
     const endDate = new Date(endTime);
     const now = new Date();
