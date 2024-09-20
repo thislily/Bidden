@@ -10,7 +10,7 @@ export function setProfileLink() {
     const profileLink = document.getElementById("profile-link");
 
     if (profile && profileLink) {  // Check if profileLink is not null
-        profileLink.href = `/profile/index.html?id=${profile.name}`;
+        profileLink.href = `/profile/index.html?name=${profile.name}`;
     } else {
         console.error("Profile link element not found or profile is invalid.");
     }

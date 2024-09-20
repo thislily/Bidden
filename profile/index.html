@@ -207,7 +207,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
               <li class="breadcrumb-item"><a href="../index.html">All Listings</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Profile</li>
+              <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-name">Profile</li>
             </ol>
           </nav>
    
@@ -216,19 +216,19 @@
     <!-- Profile Card -->
 
     <div class="card rounded-0 border-black bg-light thick-shadow-no-hover mb-4" style="width: 100%; max-width:800px">
-        <img src="../images/banner.jpg" class="card-img-top object-fit-cover rounded-0" alt="banner" style="height: 220px;">
+        <img src="" class="card-img-top object-fit-cover rounded-0" alt="banner" style="height: 220px;" id="banner-img">
         <div class="card-img-overlay d-flex justify-content-end">
             <button class="btn btn-outline-light rounded-0 fw-semibold d-block " style="height: max-content;" data-bs-toggle="modal" data-bs-target="#edit-modal">Edit <i class="bi bi-pencil-square"></i></button>
         </div>
 
         <div class="d-flex align-items-top justify-content-between p-3">
             <div class="d-flex align-items-center">
-                <img src="../images/avatar.jpg" class="rounded-circle" alt="profile" style="height: 80px; width: 80px;">
+                <img src="" class="rounded-circle object-fit-cover" alt="profile" style="height: 80px; width: 80px;" id="avatar-img">
             </div>
 
             <div class="card-body mx-2 mx-md-3">
-                <h1 class="card-title h2">Lady Nameson</h1>
-                <p class="card-text">I'm a fan of shoes and lamps, can't get enough of them!</p>
+                <h1 class="card-title h2" id="profile-name"></h1>
+                <p class="card-text" id="profile-bio"></p>
             </div>
 
         </div>
@@ -240,197 +240,15 @@
     <!-- Profile Listings -->
 
     <div class="d-flex justify-content-center justify-content-md-start gap-3" style="width: 100%; max-width: 800px;">
-        <button class="btn btn-outline-primary text-black rounded-0 active"> <span>5</span> Listings</button>
-        <button class="btn btn-outline-primary text-black rounded-0 "><span>3</span> Wins</button>
+        <button class="btn btn-outline-primary text-black rounded-0 active" id="listings-button"> <span id="listings-amount"></span> Listings</button>
+        <button class="btn btn-outline-primary text-black rounded-0" id="wins-button"><span id="wins-amount"></span> Wins</button>
     </div>
 
     <div
     class="d-flex justify-content-center align-items-center flex-wrap gap-4 my-3"
+    id="listings-and-wins"
   >
-    <!-- Cards  -->
-    <div
-      class="card mb-3 thick-shadow rounded-0 col-10 col-sm-8"
-      style="max-width: 560px"
-    >
-      <a href="../listing/index.html" class="text-black text-decoration-none">
-        <div class="row g-0">
-          <div class="col-md-4" style="max-height: 360px">
-            <img
-              src="../images/item.jpg"
-              class="img-fluid object-fit-cover rounded-0"
-              style="min-height: 259px; height: 100%; width: 100%"
-              alt="its a lamp"
-            />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Cute Lamp</h5>
-              <p class="card-text">Just a cutie pie little lamp.</p>
-              <p class="card-text fw-semibold">bid @ 75 credits</p>
-              <p class="card-text text-secondary-emphasis fst-italic">
-                <span class="text-decoration-underline">lamp</span>,
-                <span class="text-decoration-underline">cute</span>,
-                <span class="text-decoration-underline">cutelamp</span>
-              </p>
-              <p class="card-text">
-                <small class="text-body-secondary"
-                  >Created 7 hours ago <br />
-                  Last updated 3 mins ago</small
-                >
-              </p>
-            </div>
-          </div>
-        </div> 
-      </a>
-    </div>
 
-    <div
-      class="card mb-3 thick-shadow rounded-0 col-10 col-sm-8"
-      style="max-width: 560px"
-    >
-      <a href="../listing/index.html" class="text-black text-decoration-none">
-        <div class="row g-0">
-          <div class="col-md-6" style="max-height: 360px">
-            <!-- card-img-overlay -->
-            <div class="card-img-overlay">
-              <p class="card-text text-primary h4 fw-semibold bg-black p-2" style="max-width: fit-content; ">75</p>
-            </div>
-            <img
-              src="../images/item.jpg"
-              class="img-fluid object-fit-cover rounded-0"
-              style="min-height: 259px; height: 100%; width: 100%"
-              alt="its a lamp"
-            />
-          </div>
-          <div class="col-md-6 ">
-            <div class="card-body d-flex flex-column justify-content-between h-100">
-              <h2 class="card-title h5">Cute Lamp</h2>
-              <p class="card-text">Just a cutie pie little lamp.</p>
-              <p class="card-text text-secondary-emphasis fst-italic">
-                <span class="text-decoration-underline">lamp</span>,
-                <span class="text-decoration-underline">cute</span>,
-                <span class="text-decoration-underline">cutelamp</span>
-              </p>
-              <p class="card-text pt-2">
-                <small class="text-body-secondary fst-italic"
-                  >Created 7 hours ago </small>
-                  <br>
-                <small class="text-body-secondary fst-italic">Last updated 3 mins ago</small>
-              </p>
-
-            </div>
-          </div>
-        </div> 
-      </a>
-    </div>
-
-    <div
-      class="card mb-3 thick-shadow rounded-0 col-10 col-sm-8"
-      style="max-width: 560px"
-    >
-      <a href="../listing/index.html" class="text-black text-decoration-none">
-        <div class="row g-0">
-          <div class="col-md-4" style="max-height: 360px">
-            <img
-              src="../images/item.jpg"
-              class="img-fluid object-fit-cover rounded-0"
-              style="min-height: 259px; height: 100%; width: 100%"
-              alt="its a lamp"
-            />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Cute Lamp</h5>
-              <p class="card-text">Just a cutie pie little lamp.</p>
-              <p class="card-text fw-semibold">bid @ 75 credits</p>
-              <p class="card-text text-secondary-emphasis fst-italic">
-                <span class="text-decoration-underline">lamp</span>,
-                <span class="text-decoration-underline">cute</span>,
-                <span class="text-decoration-underline">cutelamp</span>
-              </p>
-              <p class="card-text">
-                <small class="text-body-secondary"
-                  >Created 7 hours ago <br />
-                  Last updated 3 mins ago</small
-                >
-              </p>
-            </div>
-          </div>
-        </div> 
-      </a>
-    </div>
-
-    <div
-      class="card mb-3 thick-shadow rounded-0 col-10 col-sm-8"
-      style="max-width: 560px"
-    >
-      <a href="../listing/index.html" class="text-black text-decoration-none">
-        <div class="row g-0">
-          <div class="col-md-4" style="max-height: 360px">
-            <img
-              src="../images/item.jpg"
-              class="img-fluid object-fit-cover rounded-0"
-              style="min-height: 259px; height: 100%; width: 100%"
-              alt="its a lamp"
-            />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Cute Lamp</h5>
-              <p class="card-text">Just a cutie pie little lamp.</p>
-              <p class="card-text fw-semibold">bid @ 75 credits</p>
-              <p class="card-text text-secondary-emphasis fst-italic">
-                <span class="text-decoration-underline">lamp</span>,
-                <span class="text-decoration-underline">cute</span>,
-                <span class="text-decoration-underline">cutelamp</span>
-              </p>
-              <p class="card-text">
-                <small class="text-body-secondary"
-                  >Created 7 hours ago <br />
-                  Last updated 3 mins ago</small
-                >
-              </p>
-            </div>
-          </div>
-        </div> 
-      </a>
-    </div>
-
-    <div
-      class="card mb-3 thick-shadow rounded-0 col-10 col-sm-8"
-      style="max-width: 560px"
-    >
-      <a href="../listing/index.html" class="text-black text-decoration-none">
-        <div class="row g-0">
-          <div class="col-md-4" style="max-height: 360px">
-            <img
-              src="../images/item.jpg"
-              class="img-fluid object-fit-cover rounded-0"
-              style="min-height: 259px; height: 100%; width: 100%"
-              alt="its a lamp"
-            />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Cute Lamp</h5>
-              <p class="card-text">Just a cutie pie little lamp.</p>
-              <p class="card-text fw-semibold">bid @ 75 credits</p>
-              <p class="card-text text-secondary-emphasis fst-italic">
-                <span class="text-decoration-underline">lamp</span>,
-                <span class="text-decoration-underline">cute</span>,
-                <span class="text-decoration-underline">cutelamp</span>
-              </p>
-              <p class="card-text">
-                <small class="text-body-secondary"
-                  >Created 7 hours ago <br />
-                  Last updated 3 mins ago</small
-                >
-              </p>
-            </div>
-          </div>
-        </div> 
-      </a>
-    </div>
 
   </div>
 </div>
