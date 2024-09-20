@@ -11,6 +11,7 @@ import { renderListings } from "./render/feed.mjs";
 import { displaySingleListing } from "./render/listing.mjs";
 import { filterListings, searchBar, handleFilter, handleSearch } from "./handlers/filter&search.mjs";
 import { setProfileLink } from "./handlers/setProfileLink.mjs";
+import { renderProfile } from "./render/profile.mjs";
 
 
 if (loginModal) {
@@ -31,6 +32,10 @@ if (location.pathname === "/" || location.pathname === "/index.html") {
 
 if (location.pathname === "/listing/index.html" || location.pathname === "/listing/") {
   displaySingleListing();
+}
+
+if (location.pathname === "/profile/index.html" || location.pathname === "/profile/") {
+  renderProfile();
 }
 
 if (filterListings){

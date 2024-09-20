@@ -79,7 +79,11 @@ export function horizontalCard(listing) {
 
   const cardText3 = document.createElement("p");
   cardText3.classList.add("card-text", "text-secondary-emphasis", "fst-italic", "fw-semibold");
+  if(listing._count){
   cardText3.textContent ="Bids so far: " + listing._count.bids;
+  } else {
+    cardText3.textContent = "";
+  }
   cardBody.appendChild(cardText3);
 
   // Create small elements for created and updated, using timeAgo to display time
