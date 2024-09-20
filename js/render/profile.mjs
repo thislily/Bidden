@@ -1,6 +1,12 @@
 import { fetchProfile } from "../api/profile/read.mjs";
 import { horizontalCard } from "./templates/horizontalCard.mjs";
 
+/**
+ * @module render
+ * @description Renders the profile page and adds event listeners to the buttons
+ * 
+ */
+
 
 export async function renderProfile() {
     const breadcrumbName = document.getElementById("breadcrumb-name");

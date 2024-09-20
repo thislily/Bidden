@@ -1,5 +1,10 @@
 import { createListing } from "../api/listings/create.mjs";
 
+/**
+ * handle the create listing form submission
+ * @returns {Object} - the listing data
+ */
+
 export const createListingForm = document.querySelector("#create-listing-form");
 
 export function handleCreateListingForm() {

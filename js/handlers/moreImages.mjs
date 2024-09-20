@@ -1,4 +1,9 @@
-import { createListingForm } from "./createListingForm.mjs";
+/**
+ * @module moreImages
+ * @description This module handles the more images button, which allows the user to add more images to the form.
+ */
+
+
 //handle the more images button, each one will be numbered so that we can identify them as a pair
 
 export const moreImages = document.querySelector("#more-images");
