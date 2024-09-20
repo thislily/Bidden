@@ -9,10 +9,34 @@ import { handleNavMenuAvatar } from "./handlers/navMenuAvatar.mjs";
 import { handleLogoutButton } from "./handlers/logoutUser.mjs";
 import { renderListings } from "./render/feed.mjs";
 import { displaySingleListing } from "./render/listing.mjs";
-import { filterListings, searchBar, handleFilter, handleSearch } from "./handlers/filter&search.mjs";
+import {
+  filterListings,
+  searchBar,
+  handleFilter,
+  handleSearch,
+} from "./handlers/filter&search.mjs";
 import { setProfileLink } from "./handlers/setProfileLink.mjs";
 import { renderProfile } from "./render/profile.mjs";
+import { moreImages, handleMoreImages } from "./handlers/moreImages.mjs";
+import { createListingForm, handleCreateListingForm } from "./handlers/createListingForm.mjs";
 
+if (location.pathname === "/" || location.pathname === "/index.html") {
+  renderListings();
+}
+
+if (
+  location.pathname === "/listing/index.html" ||
+  location.pathname === "/listing/"
+) {
+  displaySingleListing();
+}
+
+if (
+  location.pathname === "/profile/index.html" ||
+  location.pathname === "/profile/"
+) {
+  renderProfile();
+}
 
 if (loginModal) {
   handleLoginModal();
@@ -26,31 +50,24 @@ if (loginForm) {
   handleLoginForm();
 }
 
-if (location.pathname === "/" || location.pathname === "/index.html") {
-  renderListings();
-}
+if(createListingForm){
+  handleCreateListingForm();
+} 
 
-if (location.pathname === "/listing/index.html" || location.pathname === "/listing/") {
-  displaySingleListing();
-}
-
-if (location.pathname === "/profile/index.html" || location.pathname === "/profile/") {
-  renderProfile();
-}
-
-if (filterListings){
+if (filterListings) {
   handleFilter();
 }
 
-if (searchBar){
+if (searchBar) {
   handleSearch();
 }
 
-
+if (moreImages){
+  handleMoreImages();
+}
 
 handleNavMenuAvatar();
 handleLogoutButton();
 document.addEventListener("DOMContentLoaded", () => {
   setProfileLink();
 });
-
