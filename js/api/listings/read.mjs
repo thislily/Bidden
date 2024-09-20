@@ -6,11 +6,39 @@ import { headers, LISTINGS_URL } from "../auth/constants.mjs";
  * @throws {Error} - if the listings are not found in the api response
  */
 
-export async function fetchListings() {
+
+export async function fetchListings(type) {
+    let ADD_ON_URL = "";
+
+    if (type === "filter") {
+        const filterValue = document.getElementById("filter-listings").value;
+        console.log("Filter value:", filterValue);
+
+        if (filterValue === "1") {
+            ADD_ON_URL = `?_active=true`;
+        } else if (filterValue === "2") {
+            ADD_ON_URL = `?_active=false`;
+        }
+
+    } else if (type === "search") {
+        const searchValue = document.getElementById("search-bar").value;
+        console.log("Search value:", searchValue);
+
+        if (searchValue !== "") {
+            // Build the correct search URL
+            ADD_ON_URL = `/search?q=${searchValue}`;
+        } else {
+            console.log("Search term is empty, no search will be performed.");
+            return;  // Exit if the search bar is empty
+        }
+    }
+
+    console.log("Fetching listings with URL:", LISTINGS_URL + ADD_ON_URL);
+
     try {
-        const response = await fetch(LISTINGS_URL, {
+        const response = await fetch(LISTINGS_URL + ADD_ON_URL, {
             method: "GET",
-            headers: headers()
+            headers: headers(),
         });
 
         if (!response.ok) {
@@ -18,16 +46,15 @@ export async function fetchListings() {
         }
 
         const listingsData = await response.json();
-
-        console.log("Listings fetched successfully:", listingsData);
-
         return listingsData;
 
     } catch (error) {
-        console.error(error);
+        console.error("Error fetching listings:", error);
     }
-
 }
+
+
+
 
 
 export async function fetchSingleListing() {
@@ -45,7 +72,6 @@ export async function fetchSingleListing() {
 
         const listingData = await response.json();
 
-        console.log("Listing fetched successfully:", listingData);
 
         return listingData;
 

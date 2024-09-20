@@ -13,9 +13,6 @@ export const API_KEY = "c564739c-7bec-4fcf-8fc8-c60418613a1e"; // API Key
 export function headers() {
     const token = localStorage.getItem("token");
   
-    // Log the token for debugging
-    console.log("Authorization Token:", token);
-  
     return {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

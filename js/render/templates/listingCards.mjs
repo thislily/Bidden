@@ -2,9 +2,14 @@ import { timeAgo } from "./timeAgo.mjs";
 import { formatTimeRemaining } from "./endsAt.mjs";
 import { checkBiddingStatus } from "./isActive.mjs";
 
+/**
+ * function that returns a listing card template
+ * @param {Object} listing - the listing object
+ * @returns {HTMLDivElement} - the listing card template
+ * 
+ */
 
-// template for listing card
-
+//template for listing card
 export function listingCard(listing) {
   const container = document.createElement("div");
     container.classList.add("container-xxl", "bg", "bg-white", "d-flex", "flex-wrap", "justify-content-center", "align-items-start", "gap-3", "my-4", "mb-5");
@@ -20,22 +25,22 @@ export function listingCard(listing) {
     card.appendChild(cardTitle);
 
     const carousel = document.createElement("div");
-    carousel.id = `carouselExampleIndicators-${listing.data.id}`;  // Unique id for each carousel
+    carousel.id = `carouselExampleIndicators-${listing.data.id}`;carousel
     carousel.classList.add("carousel", "slide", "card-img", "position-relative");
     carousel.style.height = "300px";
-    carousel.style.overflow = "hidden";  // Ensure overflow is hidden to prevent visible slides
+    carousel.style.overflow = "hidden";
     card.appendChild(carousel);
     
     // Add the overlay with the button
     const overlay = document.createElement("div");
     overlay.classList.add("position-absolute", "top-0", "start-0", "d-flex", "justify-content-start", "align-items-start");
-    overlay.style.zIndex = "2";  // Ensure the overlay is above the carousel images
-    overlay.style.width = "100%";  // Ensure the overlay spans the full width
-    overlay.style.height = "100px";  // Adjust height of the overlay as needed
+    overlay.style.zIndex = "2";
+    overlay.style.width = "100%";
+    overlay.style.height = "100px";
     carousel.appendChild(overlay);
     
     const overlayButton = document.createElement("a");
-    overlayButton.href = "#auction-card";  // Ensure this targets the auction card
+    overlayButton.href = "#auction-card";
     overlayButton.classList.add("btn", "btn-outline-primary","d-block" ,"d-sm-none", "text-black", "rounded-0", "m-2");
     overlayButton.textContent = "Bid Now";
     overlay.appendChild(overlayButton);
@@ -47,19 +52,20 @@ export function listingCard(listing) {
     
     if (listing.data.media && Array.isArray(listing.data.media) && listing.data.media.length > 0) {
         listing.data.media.forEach((media, index) => {
+          
             // Create the indicator
             const indicator = document.createElement("button");
             indicator.type = "button";
-            indicator.dataset.bsTarget = `#carouselExampleIndicators-${listing.data.id}`;  // Target unique id
+            indicator.dataset.bsTarget = `#carouselExampleIndicators-${listing.data.id}`;
             indicator.dataset.bsSlideTo = index;
-            if (index === 0) indicator.classList.add("active");  // Add active class properly
+            if (index === 0) indicator.classList.add("active");
             indicator.setAttribute("aria-label", `Slide ${index + 1}`);
             carouselIndicators.appendChild(indicator);
     
             // Create the carousel item
             const carouselItem = document.createElement("div");
             carouselItem.classList.add("carousel-item");
-            if (index === 0) carouselItem.classList.add("active");  // Add active class properly
+            if (index === 0) carouselItem.classList.add("active");
             carouselItem.style.height = "100%";
             carousel.appendChild(carouselItem);
     
@@ -71,6 +77,7 @@ export function listingCard(listing) {
             carouselItem.appendChild(img);
         });
     } else {
+
         // Handle no media case
         const carouselItem = document.createElement("div");
         carouselItem.classList.add("carousel-item", "active");
@@ -80,7 +87,7 @@ export function listingCard(listing) {
         const img = document.createElement("img");
         img.src = "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg";
         img.classList.add("d-block", "w-100", "h-100");
-        img.alt = "Default Image";
+        img.alt = "Image not available";
         carouselItem.appendChild(img);
     }
     
@@ -115,7 +122,6 @@ export function listingCard(listing) {
         }
     }, 100);  // Delay to ensure the DOM is updated
     
-
     const cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
     card.appendChild(cardBody);
@@ -157,8 +163,7 @@ export function listingCard(listing) {
     sellerLink.appendChild(sellerName);
 
 
-    //create second card for active bidding
-
+    //create second card for auction details
     const card2 = document.createElement("div");
     card2.classList.add("card", "border-1", "border-black", "rounded-0", "thick-shadow-no-hover");
     card2.style.width = "18rem";
@@ -172,8 +177,7 @@ export function listingCard(listing) {
     const card2Title = document.createElement("h2");
     card2Title.classList.add("card-title", "h5", "p-3", "pb-0");
 
-    // using checkBiddingStatus function,  if bidding has ended, display "Bidding has ended", otherwise display "Active Bidding"
-
+    // Check if the bidding has ended and display the appropriate text
     if (checkBiddingStatus(listing.data.endsAt) === "Ended") {
         card2Title.textContent = "Bidding has ended";
     } else {
@@ -191,8 +195,6 @@ export function listingCard(listing) {
     const card2Body = document.createElement("div");
     card2Body.classList.add("d-flex", "justify-content-start", "align-items-center", "p-3");
     card2.appendChild(card2Body);
-
-    //create input for bidding and button, with avatar from local storage
 
     //check if user is logged in and display avatar
     if (localStorage.getItem("profile")) {
@@ -213,7 +215,7 @@ export function listingCard(listing) {
       bidInput.style.height = "38px";
       card2Body.appendChild(bidInput);
   
-      // Add the bid button logic
+      // Change the bid button based on user login status
       function updateBidButton() {
           const bidButton = document.createElement("button");
           bidButton.classList.add("btn", "btn-outline-primary", "text-black", "rounded-0");
@@ -221,10 +223,7 @@ export function listingCard(listing) {
           bidButton.type = "button";  // Make sure it's a button, not submit
   
           if (!localStorage.getItem("profile")) {
-              // User is not logged in
-              bidButton.textContent = "Log in to bid";
-  
-              // Disable bid input
+              bidButton.textContent = "Log in to bid"; 
               bidInput.disabled = true;
   
               // Add event listener to open login modal
@@ -236,13 +235,9 @@ export function listingCard(listing) {
                   }
               });
           } else {
-              // User is logged in
+              // If user is logged in, display bid button
               bidButton.textContent = "Bid";
-  
-              // Enable bid input
               bidInput.disabled = false;
-  
-              // Add functionality to submit the bid
               bidButton.addEventListener("click", () => {
                   // Implement bid submission logic here
                   console.log("User is bidding...");
@@ -259,8 +254,8 @@ export function listingCard(listing) {
     bidList.classList.add("list-group", "list-group-flush", "gap-2", "pb-2", "border-0");
     card2.appendChild(bidList);
 
-    //for every bid in listing.bids, create a list item that includes the bidder name and avatar, with the last bidder having a winning tag and a different background color and border
-// Handle all bids except the last one
+
+// Handle all bids except the last one, which is the winning bid
 listing.data.bids.slice(0, -1).forEach(bid => {
     const bidItem = document.createElement("li");
     bidItem.classList.add("list-group-item", "bg-secondary-subtle", "py-0");

@@ -9,6 +9,8 @@ import { handleNavMenuAvatar } from "./handlers/navMenuAvatar.mjs";
 import { handleLogoutButton } from "./handlers/logoutUser.mjs";
 import { renderListings } from "./render/feed.mjs";
 import { displaySingleListing } from "./render/listing.mjs";
+import { filterListings, searchBar, handleFilter, handleSearch } from "./handlers/filter&search.mjs";
+import { setProfileLink } from "./handlers/setProfileLink.mjs";
 
 
 if (loginModal) {
@@ -31,7 +33,19 @@ if (location.pathname === "/listing/index.html" || location.pathname === "/listi
   displaySingleListing();
 }
 
+if (filterListings){
+  handleFilter();
+}
+
+if (searchBar){
+  handleSearch();
+}
+
+
 
 handleNavMenuAvatar();
 handleLogoutButton();
+document.addEventListener("DOMContentLoaded", () => {
+  setProfileLink();
+});
 
