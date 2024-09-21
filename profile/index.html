@@ -73,74 +73,13 @@
         <div class="modal fade" id="edit-modal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="Edit Profile modal" aria-hidden="true">
           <div class="modal-dialog ">
             <div class="modal-content rounded-0 thick-shadow-red border-black pb-5" >
-              <div class="d-flex border-0 p-0">
-                <button class="w-50 btn btn-secondary fw-semibold rounded-0 shadow-subtle p-3" id="view-login-button">
-                  Already have an account?<br><i class="bi bi-person h1"></i>
-                </button>
-                <button class="w-50 btn btn-dark rounded-0 p-3" id="view-register-button">
-                  Create an account<br><i class="bi bi-person-plus h1"></i>
-                </button>
-              </div>
               <div class="modal-body border-0 mx-auto" style="max-width: 360px; width: 80%;">
-                <h1 class="modal-title h2 fw-bold pt-3" id="login-label">Log in here</h1>
-        
-                <!--Login Form starts here -->
-                <form class="needs-validation d-block" id="login-form">
-                  <div class="mb-3">
-                    <label for="email" class="form-label mb-0">Email</label>
-                    <input type="text" class="form-control rounded-0 border-black" id="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(noroff\.no|stud\.noroff\.no)$">
-                    <div class="invalid-feedback">
-                      Please enter a valid @noroff.no or @stud.noroff.no email.
-                    </div>
-                  </div>
-        
-                  <div class="mb-3">
-                    <label for="password" class="form-label mb-0">Password</label>
-                    <input type="password" class="form-control rounded-0 border-black" id="password" name="password" required>
-                    <div class="invalid-feedback">
-                      Please enter your password.
-                    </div>
-                  </div>
-        
-                  <!-- Submit and cancel buttons inside the form -->
-                  <div class="d-flex align-items-center flex-column border-0">
-                    <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Log in <i class="bi bi-box-arrow-in-right "></i></button>
-                    <span class="border  border-primary-subtle my-3 w-75" style="height: 1px;"></span>
-                    <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle "></i></button>
-                  </div>
-                </form>
+                <h1 class="modal-title h2 fw-bold py-3 text-center" id="login-label">Edit Profile</h1>
 
-                <!--Register Form starts here -->
+                <!--Edit Profile Form starts here -->
 
+                <form class="needs-validation" id="edit-profile-form">
 
-                <form class="needs-validation d-none" id="register-form">
-
-                  <div class="mb-3">
-                    <label for="regName" class="form-label mb-0">Name*</label>
-                    <input                  
-                    type="text"
-                    name="regName"
-                    class="form-control rounded-0 border-black"
-                    id="regName"
-                    placeholder="Name123"
-                    pattern="[A-Za-z0-9_]+"
-                    title="Username must be 1-40 characters long and contain only letters, numbers, and underscores."
-                    required>
-                  </div>
-                
-
-                  <div class="mb-3">
-                    <label for="regEmail" class="form-label mb-0">Email*</label>
-                    <input                     
-                    type="email"
-                    name="regEmail"
-                    class="form-control rounded-0 border-black"
-                    id="regEmail"
-                    placeholder="name@noroff.no"
-                    pattern="^[^@]+@(stud\.|)(noroff\.no)$"
-                    title="Email must end with @noroff.no or @stud.noroff.no"
-                    required>
-                  </div>
 
                   <div class="mb-3">
                     <label for="bio" class="form-label mb-0">Bio</label>
@@ -174,23 +113,10 @@
                       placeholder="Image URL"
                       title="Please enter a valid URL.">
                     </div>
-
-                    <div class="mb-3">
-                      <label for="regPassword" class="form-label mb-0">Password*</label>
-                      <input                    
-                      type="password"
-                      name="regPassword"
-                      class="form-control rounded-0 border-black"
-                      id="regPassword"
-                      placeholder="Password"
-                      minlength="8"
-                      title="Password must be at least 8 characters long"
-                      required>
-                    </div>
         
                   <!-- Submit and cancel buttons inside the form -->
                   <div class="d-flex align-items-center flex-column border-0">
-                    <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Sign up <i class="bi bi-box-arrow-in-right "></i></button>
+                    <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Save Changes <i class="bi bi-box-arrow-in-right "></i></button>
                     <span class="border  border-primary-subtle my-3 w-75" style="height: 1px;"></span>
                     <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle "></i></button>
                   </div>

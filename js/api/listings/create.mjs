@@ -15,7 +15,8 @@ export async function createListing(listing) {
         });
 
         const data = await response.json();
-        console.log("data", data);
+
+        window.location.href = `/listing/index.html?id=${data.data.id}`;
 
         if (!response.ok) {
             throw new Error(data.message || "Failed to create listing.");

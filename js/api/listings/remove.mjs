@@ -1,4 +1,4 @@
-//delete a listing from the server with delete request
+
 
 import { headers, LISTINGS_URL } from "../auth/constants.mjs";
 
@@ -9,16 +9,20 @@ export async function removeListing(id) {
             headers: headers(),
         });
 
-        const data = await response.json();
-        console.log("data", data);
-
-        if (!response.ok) {
-            throw new Error(data.message || "Failed to delete listing.");
+        // Handle 204 No Content response
+        if (response.status === 204) {
+            console.log("Listing deleted successfully.");
+            return;  // Nothing more to do since the API indicates success with no content
         }
 
-        return data;
+        // If status is not 204, check for possible error
+        if (!response.ok) {
+            const errorData = await response.json();  // Parse error details if any
+            throw new Error(errorData.message || "Failed to delete listing.");
+        }
+
     } catch (error) {
         console.error("Error deleting listing:", error);
-        throw error;  // Throw error so the calling function can handle it
+        throw error;  // Rethrow the error to be handled by the calling function
     }
 }

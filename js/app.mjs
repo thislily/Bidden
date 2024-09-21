@@ -20,6 +20,7 @@ import { renderProfile } from "./render/profile.mjs";
 import { moreImages, handleMoreImages } from "./handlers/moreImages.mjs";
 import { createListingForm, handleCreateListingForm } from "./handlers/createListingForm.mjs";
 import { handleUpdateListingForm } from "./handlers/updateListingForm.mjs";
+import { handleRemoveListingButton } from "./handlers/removeListingButton.mjs";
 
 if (location.pathname === "/" || location.pathname === "/index.html") {
   renderListings();
@@ -31,6 +32,7 @@ if (
 ) {
   displaySingleListing();
   handleUpdateListingForm();
+  handleRemoveListingButton();
 
 }
 
@@ -74,8 +76,3 @@ handleLogoutButton();
 document.addEventListener("DOMContentLoaded", () => {
   setProfileLink();
 });
-
-
-
-// for contact us button
-// "https://i.pinimg.com/736x/82/fa/6b/82fa6b73d34b060a877f18074c930b61.jpg"
