@@ -1,6 +1,7 @@
 import { timeAgo } from "./timeAgo.mjs";
 import { formatTimeRemaining } from "./endsAt.mjs";
 import { checkBiddingStatus } from "./isActive.mjs";
+import { fillUpdateListingForm } from "../../render/templates/updateListing.mjs";
 
 /**
  * function that returns a listing card template
@@ -11,8 +12,14 @@ import { checkBiddingStatus } from "./isActive.mjs";
 
 //template for listing card
 export function listingCard(listing) {
+    // get id from the query string
+    const listingId = new URLSearchParams(window.location.search).get("id");
+    console.log("Listing ID:", listingId);
+
+    console.log("Listing data:", listing);
+
   const container = document.createElement("div");
-    container.classList.add("container-xxl", "bg", "bg-white", "d-flex", "flex-wrap", "justify-content-center", "align-items-start", "gap-3", "my-4", "mb-5");
+    container.classList.add("container-xxl", "bg", "bg-white", "d-flex", "flex-wrap", "justify-content-center", "align-items-start", "gap-3", "my-1", "mb-5");
 
     const card = document.createElement("div");
     card.classList.add("card", "border-1", "border-black", "rounded-0", "thick-shadow-no-hover");
@@ -26,7 +33,7 @@ export function listingCard(listing) {
 
     const carousel = document.createElement("div");
     carousel.id = `carouselExampleIndicators-${listing.data.id}`;carousel
-    carousel.classList.add("carousel", "slide", "card-img", "position-relative");
+    carousel.classList.add("carousel", "slide", "card-img", "position-relative", "rounded-0");
     carousel.style.height = "300px";
     carousel.style.overflow = "hidden";
     card.appendChild(carousel);
@@ -41,10 +48,33 @@ export function listingCard(listing) {
     
     const overlayButton = document.createElement("a");
     overlayButton.href = "#auction-card";
+    overlayButton.style.cursor = "pointer";
+    overlayButton.id = "go-to-bidding-button";
     overlayButton.classList.add("btn", "btn-outline-primary","d-block" ,"d-sm-none", "text-black", "rounded-0", "m-2");
     overlayButton.textContent = "Bid Now";
     overlay.appendChild(overlayButton);
+
+    const profile = JSON.parse(localStorage.getItem("profile"));
+console.log(profile.name);
+
+    console.log(listing.data.seller.name);
+    if (profile.name === listing.data.seller.name) {
+
+
+    const updateButton = document.createElement("button");
+    updateButton.classList.add("btn", "btn-outline-primary", "text-black", "rounded-0", "m-2", "fw-semibold");
+    updateButton.id = "update-listing-button";
+    updateButton.textContent = "Update";
+    updateButton.style.cursor = "pointer";
+    updateButton.setAttribute("data-bs-toggle", "modal");
+    updateButton.setAttribute("data-bs-target", "#update-listing-modal");
+    overlay.appendChild(updateButton);
+
+    updateButton.addEventListener("click", () => {
+        fillUpdateListingForm(listing);
     
+    });
+    }
     // Continue with creating carousel indicators and items
     const carouselIndicators = document.createElement("div");
     carouselIndicators.classList.add("carousel-indicators");
@@ -317,92 +347,3 @@ if (listing.data.bids.length > 0) {
     return container;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* <div class="container-xxl bg bg-white d-flex flex-wrap justify-content-center align-items-start gap-3 my-4 mb-5">
-<div class="card border-1 border-black rounded-0 thick-shadow-no-hover" style="width: 18rem;">
-  <h1 class="card-title text-center h2 pt-1">Cute Lamp</h1>
-  <div id="carouselExampleIndicators" class="carousel slide card-img" style="height: 300px;">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner h-100">
-      <div class="carousel-item active h-100">
-        <img src="../images/item.jpg" class="d-block w-100 h-100" alt="Slide 1">
-      </div>
-      <div class="carousel-item h-100">
-        <img src="../images/avatar.jpg" class="d-block w-100 h-100" alt="Slide 2">
-      </div>
-      <div class="carousel-item h-100">
-        <img src="../images/banner.jpg" class="d-block w-100 h-100" alt="Slide 3">
-      </div>
-    </div>
-
-    <div class="card-img-overlay d-flex d-md-none justify-content-start align-items-start">
-      <a href="#auction-card" class="btn btn-outline-primary text-black rounded-0">Bid Now</a>
-    </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-
-  <div class="card-body">
-    <p class="card-text">Just a cutie pie little lamp.</p>
-
-    <p class="card-text">
-      <i style="font-size: 0.9rem;">Listed: 7 hours ago</i>
-      <br>
-      <i style="font-size: 0.9rem;">Updated: 2 hours</i>
-    </p>
-
-    
-  </div>
-
-  <p class="fw-semibold ps-3 pb-0 mb-0">Seller:</p>
-  <a class="d-flex align-items-center justify-content-start bg-secondary-subtle px-3 py-1 text-decoration-none text-black" style="cursor: pointer;">
-    <img class="avatar-mini" src="../images/avatar.jpg" alt="avatar">
-    <p class=" pt-2">Lady Nameson</p>
-  </a>
-</div>
-
-
-  <div class="card border-1 border-black rounded-0 thick-shadow-no-hover" style="width: 18rem;" id="auction-card">
-      <div class="border-bottom border-secondary-subtle bg-light ">
-          <h2 class="card-title h5 p-3 pb-0">Active Bidding</h2>
-          <p class="fst-italic ps-3">Bidding ends in 2 hours</p>
-      </div>
-
-      <div class="d-flex justify-content-start align-items-center p-3">
-          <img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">
-          <input type="text" name="bid" id="bid" class="rounded-0 border-1 me-2" style="width: 80px; height: 38px;">
-          <button class="btn btn-outline-primary text-black rounded-0">Bid</button>
-      </div>
- 
-      <ul class="list-group list-group-flush gap-2 pb-2 border-0">
-          <li class="list-group-item bg-secondary-subtle py-1"><img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">22 Credits</li>
-          <li class="list-group-item bg-secondary-subtle py-1"> <img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">26 Credits</li>
-          <li class="list-group-item bg-primary-subtle py-1 border-primary border-1 border-start-0 border-end-0 rounded-0"><img src="../images/avatar.jpg" alt="avatar" class="avatar-mini">31 Credits <span class="fst-italic fw-semibold">WINNING</span></li>
-        </ul>
-  </div>
-
-</div> */

@@ -2,7 +2,7 @@
 import { horizontalCard } from "./templates/horizontalCard.mjs";
 import { fetchListings } from "../api/listings/read.mjs";
 
-/*
+/**
 * @param {Object} listing
 * @returns {HTMLDivElement}
 */

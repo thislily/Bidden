@@ -54,9 +54,6 @@ export async function fetchListings(type) {
 }
 
 
-
-
-
 export async function fetchSingleListing() {
     const queryParams = new URLSearchParams(window.location.search);
     const id = queryParams.get("id");

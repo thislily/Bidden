@@ -242,3 +242,14 @@ main {
   background-color: $primary;
   border-color: $primary;
 }
+
+.btn-outline-light {
+  background-color: $dark;
+  border-color: $light;
+}
+
+.btn-outline-light:hover {
+  background-color: $light;
+  border-color: $light;
+}
+

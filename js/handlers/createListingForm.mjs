@@ -1,5 +1,10 @@
 import { createListing } from "../api/listings/create.mjs";
 
+/**
+ * handle the create listing form submission
+ * @returns {Object} - the listing data
+ */
+
 export const createListingForm = document.querySelector("#create-listing-form");
 
 export function handleCreateListingForm() {
@@ -28,6 +33,10 @@ export function handleCreateListingForm() {
             media: mediaArray,
             endsAt: endDateTime.toISOString(),
         };
+
+        // get id from the query string
+        const listingId = new URLSearchParams(window.location.search).get("id");
+        console.log("Listing ID:", listingId);
 
         // Send listing data to the API
         try {

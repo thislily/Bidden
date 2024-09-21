@@ -7,8 +7,6 @@ import { fetchSingleListing } from '../api/listings/read.mjs';
  * @returns {Object} - the post element
  */
 
-//render a listing using the listingCard template
-
 export function renderSingleListing(listing) {
     const listingContainer = document.getElementById("single-listing-container");
     const listingElement = listingCard(listing);

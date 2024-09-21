@@ -12065,4 +12065,14 @@ textarea.form-control-lg {
   border-color: #8ACE00;
 }
 
+.btn-outline-light {
+  background-color: #212529;
+  border-color: #f8f9fa;
+}
+
+.btn-outline-light:hover {
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
 /*# sourceMappingURL=main.css.map */
