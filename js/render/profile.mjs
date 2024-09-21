@@ -1,5 +1,7 @@
 import { fetchProfile } from "../api/profile/read.mjs";
 import { horizontalCard } from "./templates/horizontalCard.mjs";
+import { fillUpdateProfileForm } from "./templates/updateProfile.mjs";
+// import { fillUpdateProfileForm } from "./templates/updateProfile.mjs";
 
 /**
  * @module render
@@ -14,6 +16,7 @@ export async function renderProfile() {
     const avatarImg = document.getElementById("avatar-img");
     const profileName = document.getElementById("profile-name");
     const profileBio = document.getElementById("profile-bio");
+    const editProfile = document.getElementById("edit-profile");
 
     const listingsButton = document.getElementById("listings-button");
     const winsButton = document.getElementById("wins-button");
@@ -22,6 +25,16 @@ export async function renderProfile() {
     const listingsAndWins = document.getElementById("listings-and-wins");
 
     const profileData = await fetchProfile();
+    const userProfile = JSON.parse(localStorage.getItem("profile"));
+
+    fillUpdateProfileForm(userProfile)
+   
+
+    if (userProfile.name === profileData.data.name) {
+        editProfile.classList.remove("d-none");
+    } else {
+        editProfile.classList.add("d-none");
+    }
 
     if (profileData) {
         breadcrumbName.innerText = profileData.data.name;
@@ -32,6 +45,10 @@ export async function renderProfile() {
 
         listingsAmount.innerText = profileData.data._count.listings;
         winsAmount.innerText = profileData.data._count.wins;
+        listingsAndWins.innerHTML = "";
+        profileData.data.listings.forEach((listing) => {
+            listingsAndWins.appendChild(horizontalCard(listing));
+        });
     }
 
     // Event listener for Listings button
@@ -57,7 +74,7 @@ export async function renderProfile() {
 
         if (profileData.data._count.wins < 1) {
             const h3 = document.createElement("h3");
-            h3.innerText = "No wins found.";
+            h3.innerText = "No wins yet.";
             listingsAndWins.appendChild(h3);
         } else {
             profileData.data.wins.forEach((win) => {
