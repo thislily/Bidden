@@ -55,9 +55,7 @@ export function listingCard(listing) {
     overlay.appendChild(overlayButton);
 
     const profile = JSON.parse(localStorage.getItem("profile"));
-console.log(profile.name);
 
-    console.log(listing.data.seller.name);
     if (profile.name === listing.data.seller.name) {
 
 
@@ -276,7 +274,7 @@ console.log(profile.name);
               bidInput.disabled = false;
               bidButton.addEventListener("click", () => {
                   // Implement bid submission logic here
-                  console.log("User is bidding...");
+
               });
           }
   

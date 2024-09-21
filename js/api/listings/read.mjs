@@ -12,7 +12,6 @@ export async function fetchListings(type) {
 
     if (type === "filter") {
         const filterValue = document.getElementById("filter-listings").value;
-        console.log("Filter value:", filterValue);
 
         if (filterValue === "1") {
             ADD_ON_URL = `?_active=true`;
@@ -22,18 +21,15 @@ export async function fetchListings(type) {
 
     } else if (type === "search") {
         const searchValue = document.getElementById("search-bar").value;
-        console.log("Search value:", searchValue);
 
         if (searchValue !== "") {
             // Build the correct search URL
             ADD_ON_URL = `/search?q=${searchValue}`;
         } else {
-            console.log("Search term is empty, no search will be performed.");
             return;  // Exit if the search bar is empty
         }
     }
 
-    console.log("Fetching listings with URL:", LISTINGS_URL + ADD_ON_URL);
 
     try {
         const response = await fetch(LISTINGS_URL + ADD_ON_URL, {

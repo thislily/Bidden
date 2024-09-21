@@ -23,7 +23,6 @@ export async function updateListing(listing) {
 
         // Log the response data for debugging
         const data = await response.json();
-        console.log("Server response:", data);
         window.location.reload();
 
         if (!response.ok) {

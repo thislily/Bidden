@@ -11,7 +11,7 @@ export function renderSingleListing(listing) {
     const listingContainer = document.getElementById("single-listing-container");
     const listingElement = listingCard(listing);
     listingContainer.appendChild(listingElement);
-    console.log("Listing rendered successfully:", listingElement);
+    
     return listingElement;
 }
 

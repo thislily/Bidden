@@ -24,7 +24,6 @@ export async function registerUser(profile) {
     }
 
     const userData = await response.json();
-    console.log("Registration successful:", userData); // Log successful registration
 
     // Log the user in after successful registration
     loginUser(profile);

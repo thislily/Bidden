@@ -36,13 +36,10 @@ export function handleCreateListingForm() {
 
         // get id from the query string
         const listingId = new URLSearchParams(window.location.search).get("id");
-        console.log("Listing ID:", listingId);
-
         // Send listing data to the API
         try {
             const response = await createListing(listing);
-            console.log("Listing created successfully:", response);
-            alert("Listing created successfully!");
+
             createListingForm.reset();  // Optionally reset the form after successful submission
         } catch (error) {
             console.error("Failed to create listing:", error);

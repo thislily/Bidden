@@ -11,7 +11,6 @@ export async function removeListing(id) {
 
         // Handle 204 No Content response
         if (response.status === 204) {
-            console.log("Listing deleted successfully.");
             return;  // Nothing more to do since the API indicates success with no content
         }
 
