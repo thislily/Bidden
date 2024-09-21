@@ -22,7 +22,6 @@ export async function renderProfile() {
     const listingsAndWins = document.getElementById("listings-and-wins");
 
     const profileData = await fetchProfile();
-    console.log("Profile data:", profileData);
 
     if (profileData) {
         breadcrumbName.innerText = profileData.data.name;
@@ -37,7 +36,6 @@ export async function renderProfile() {
 
     // Event listener for Listings button
     listingsButton.addEventListener("click", () => {
-        console.log("Listings data:", profileData.data.listings);
         listingsButton.classList.add("active");
         winsButton.classList.remove("active");
         listingsAndWins.innerHTML = "";
@@ -53,7 +51,6 @@ export async function renderProfile() {
 
     // Event listener for Wins button
     winsButton.addEventListener("click", () => {
-        console.log("Wins data:", profileData.data.wins);
         winsButton.classList.add("active");
         listingsButton.classList.remove("active");
         listingsAndWins.innerHTML = "";

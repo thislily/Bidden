@@ -34,6 +34,7 @@ export function handleUpdateListingForm() {
 
         updateListing(listing);
 
+
     }
     );
 }

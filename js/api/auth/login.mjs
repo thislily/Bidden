@@ -39,9 +39,6 @@ export async function loginUser(profile) {
       //reload the page
       window.location.reload();
 
-
-    console.log("User logged in successfully:", localStorage.getItem("profile"));
-
     } else {
       throw new Error("Failed to login user: " + response.statusText);
     }

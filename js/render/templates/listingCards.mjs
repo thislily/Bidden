@@ -14,9 +14,9 @@ import { fillUpdateListingForm } from "../../render/templates/updateListing.mjs"
 export function listingCard(listing) {
     // get id from the query string
     const listingId = new URLSearchParams(window.location.search).get("id");
-    console.log("Listing ID:", listingId);
 
-    console.log("Listing data:", listing);
+    const currentBreadcrumb = document.getElementById("current-breadcrumb");
+    currentBreadcrumb.textContent = listing.data.title;
 
   const container = document.createElement("div");
     container.classList.add("container-xxl", "bg", "bg-white", "d-flex", "flex-wrap", "justify-content-center", "align-items-start", "gap-3", "my-1", "mb-5");
@@ -55,9 +55,7 @@ export function listingCard(listing) {
     overlay.appendChild(overlayButton);
 
     const profile = JSON.parse(localStorage.getItem("profile"));
-console.log(profile.name);
 
-    console.log(listing.data.seller.name);
     if (profile.name === listing.data.seller.name) {
 
 
@@ -167,7 +165,13 @@ console.log(profile.name);
 
     const cardText2 = document.createElement("p");
     cardText2.classList.add("card-text");
-    cardText2.innerHTML = `<i style="font-size: 0.9rem;">Listed: ${timeAgo(listing.data.created)}</i><br><i style="font-size: 0.9rem;">Updated: ${timeAgo(listing.data.updated)}</i>`;
+    if (listing.data.created === listing.data.updated) {
+
+        cardText2.innerHTML = `<i style="font-size: 0.9rem;">Listed: ${timeAgo(listing.data.created)}</i>`;
+    } else {
+
+        cardText2.innerHTML = `<i style="font-size: 0.9rem;">Listed: ${timeAgo(listing.data.created)}</i><br><i style="font-size: 0.9rem;">Updated: ${timeAgo(listing.data.updated)}</i>`;
+    }
     cardBody.appendChild(cardText2);
 
     const seller = document.createElement("p");
@@ -270,7 +274,7 @@ console.log(profile.name);
               bidInput.disabled = false;
               bidButton.addEventListener("click", () => {
                   // Implement bid submission logic here
-                  console.log("User is bidding...");
+
               });
           }
   

@@ -12,12 +12,8 @@ export async function renderListings(type = null) {
     const listingsContainer = document.getElementById("listings-container");
     listingsContainer.innerHTML = '';  // Clear previous listings
 
-    console.log("Rendering listings with type:", type);  // Log the type to ensure it's "search"
-
     // Fetch listings based on the type (either "filter" or "search")
     const listings = await fetchListings(type);  // Make sure "search" is passed to fetchListings
-
-    console.log("Listings received:", listings);  // Log listings to check if they are correct
 
     // Check if listings exist and if there are any data entries
     if (listings && listings.data && listings.data.length > 0) {

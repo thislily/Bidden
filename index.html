@@ -460,16 +460,31 @@
       </div>
     </main>
 
-    <footer
-      class="bg-black text-white container-xxl d-flex justify-content-between align-items-center p-2 px-3 sticky-bottom"
-    >
-      <p class="fw-semibold" style="font-size: 12px">
-        ©2024 <br />
-        BIDDEN <br />
-        All rights reserved
-      </p>
+    <!-- Contact Modal -->
+<div class="modal fade" id="ContactModal" tabindex="-1" aria-labelledby="ContactModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-0 thick-shadow-red border-black">
+      <div class="modal-body border-0 mx-auto" style="max-width: 800px; width: 100%;">
+        <img src="https://i.pinimg.com/736x/82/fa/6b/82fa6b73d34b060a877f18074c930b61.jpg" alt="Started making it. Had a breakdown. Bon appetite." class=" w-100">
 
-      <button class="btn btn-large rounded-0 fw-semibold">Contact Us</button>
-    </footer>
+        <!-- overlayed close button -->
+
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-3 p-3 bg-white rounded-circle" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-black text-white container-xxl d-flex justify-content-between align-items-center p-2 px-3 sticky-bottom">
+  <p class="fw-semibold" style="font-size: 12px">
+    ©2024 <br />
+    BIDDEN <br />
+    All rights reserved
+  </p>
+
+  <!-- Fixed data-bs-target attribute -->
+  <button class="btn btn-large rounded-0 fw-semibold" data-bs-toggle="modal" data-bs-target="#ContactModal">Contact Us</button>
+</footer>
   </body>
 </html>
