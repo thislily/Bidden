@@ -1,7 +1,6 @@
 import { fetchProfile } from "../api/profile/read.mjs";
 import { horizontalCard } from "./templates/horizontalCard.mjs";
 import { fillUpdateProfileForm } from "./templates/updateProfile.mjs";
-// import { fillUpdateProfileForm } from "./templates/updateProfile.mjs";
 
 /**
  * @module render
