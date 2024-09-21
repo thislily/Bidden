@@ -78,7 +78,7 @@
 
                 <!--Edit Profile Form starts here -->
 
-                <form class="needs-validation" id="edit-profile-form">
+                <form class="needs-validation" id="update-profile-form">
 
 
                   <div class="mb-3">
@@ -101,7 +101,7 @@
                       id="avatar"
                       placeholder="Image URL"
                       title="Please enter a valid URL.">
-                    </div>               
+                    </div>
 
                   <div class="mb-3">
                       <label for="banner" class="form-label mb-0">Banner</label>
@@ -116,7 +116,7 @@
         
                   <!-- Submit and cancel buttons inside the form -->
                   <div class="d-flex align-items-center flex-column border-0">
-                    <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold">Save Changes <i class="bi bi-box-arrow-in-right "></i></button>
+                    <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold" id="update-profile-button">Save Changes <i class="bi bi-box-arrow-in-right "></i></button>
                     <span class="border  border-primary-subtle my-3 w-75" style="height: 1px;"></span>
                     <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle "></i></button>
                   </div>
@@ -132,7 +132,7 @@
       <section class="container-xxl bg-white pt-5 pt-lg-1">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
-              <li class="breadcrumb-item"><a href="../index.html">All Listings</a></li>
+              <li class="breadcrumb-item"><a href="../index.html" class="text-primary-emphasis">All Listings</a></li>
               <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-name">Profile</li>
             </ol>
           </nav>
@@ -144,7 +144,7 @@
     <div class="card rounded-0 border-black bg-light thick-shadow-no-hover mb-4" style="width: 100%; max-width:800px">
         <img src="" class="card-img-top object-fit-cover rounded-0" alt="banner" style="height: 220px;" id="banner-img">
         <div class="card-img-overlay d-flex justify-content-end">
-            <button class="btn btn-outline-light rounded-0 fw-semibold d-block " style="height: max-content;" data-bs-toggle="modal" data-bs-target="#edit-modal">Edit <i class="bi bi-pencil-square"></i></button>
+            <button class="btn btn-outline-light rounded-0 fw-semibold d-block " style="height: max-content;" data-bs-toggle="modal" data-bs-target="#edit-modal" id="edit-profile">Edit <i class="bi bi-pencil-square"></i></button>
         </div>
 
         <div class="d-flex align-items-top justify-content-between p-3">
@@ -171,7 +171,7 @@
     </div>
 
     <div
-    class="d-flex justify-content-center align-items-center flex-wrap gap-4 my-3"
+    class="d-flex justify-content-center align-items-center flex-wrap gap-4 my-3 mb-5 pb-5"
     id="listings-and-wins"
   >
 

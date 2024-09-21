@@ -21,6 +21,8 @@ import { moreImages, handleMoreImages } from "./handlers/moreImages.mjs";
 import { createListingForm, handleCreateListingForm } from "./handlers/createListingForm.mjs";
 import { handleUpdateListingForm } from "./handlers/updateListingForm.mjs";
 import { handleRemoveListingButton } from "./handlers/removeListingButton.mjs";
+import { extendProfile } from "./api/profile/extendProfile.mjs";
+import { handleUpdateProfileForm } from "./handlers/updateProfileForm.mjs";
 
 if (location.pathname === "/" || location.pathname === "/index.html") {
   renderListings();
@@ -41,6 +43,7 @@ if (
   location.pathname === "/profile/"
 ) {
   renderProfile();
+  handleUpdateProfileForm();
 }
 
 if (loginModal) {
@@ -75,4 +78,5 @@ handleNavMenuAvatar();
 handleLogoutButton();
 document.addEventListener("DOMContentLoaded", () => {
   setProfileLink();
+  extendProfile();
 });

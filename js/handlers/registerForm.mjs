@@ -31,11 +31,11 @@ export function handleRegForm() {
       password: registerForm.regPassword.value,
       avatar: {
         url: registerForm.avatar.value,
-        alt: "avatar",
+        alt: "avatar for " + registerForm.regName.value,
       },
       banner:{
         url: registerForm.banner.value,
-        alt: "banner"
+        alt: "banner for " + registerForm.regName.value,
       },
     };
 
