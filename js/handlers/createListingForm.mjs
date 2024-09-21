@@ -34,6 +34,10 @@ export function handleCreateListingForm() {
             endsAt: endDateTime.toISOString(),
         };
 
+        // get id from the query string
+        const listingId = new URLSearchParams(window.location.search).get("id");
+        console.log("Listing ID:", listingId);
+
         // Send listing data to the API
         try {
             const response = await createListing(listing);

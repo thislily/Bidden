@@ -54,7 +54,7 @@
                   <li class="list-group-item-dark p-2 d-md-none">
                     <p class="text-white fst-italic m-0 h5">Credits: <span class="fw-semibold text-primary" id="menu-credits">?</span></p> </li>
                   <li class="list-group-item-dark p-2 "><a href="" class="text-decoration-none" id="profile-link">View Profile <i class="bi bi-person-circle"></i></a> </li>
-                  <li class="list-group-item-dark p-2"><a href="" class="text-decoration-none">Create Listing <i class="bi bi-file-earmark-plus"></i></a> </li>
+                  <li class="list-group-item-dark p-2"><a href="../listing/create" class="text-decoration-none">Create Listing <i class="bi bi-file-earmark-plus"></i></a> </li>
                   <li class="list-group-item-dark p-2" id="logout-button"><a href="" class="text-decoration-none">Log out <i class="bi bi-box-arrow-left"></i></a> </li>
                 </ul>
               </div>
@@ -203,7 +203,7 @@
 
     <main class="bg-white container-xxl p-0">
 
-      <section class="container-xxl bg-white pt-2 pt-lg-1" id="single-listing-container">
+      <section class="container-xxl bg-white pt-4 pt-lg-2" >
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
               <li class="breadcrumb-item text-secondary"><a href="../index.html">All Listings</a></li>
@@ -214,12 +214,52 @@
 
         <!-- Single Listing  -->
 
-        <div class="container-xxl bg bg-white d-flex flex-wrap justify-content-center align-items-start gap-3 my-4 mb-5">
+        <div class="container-xxl bg bg-white d-flex flex-wrap justify-content-start align-items-start gap-3 my-1 mb-5" id="single-listing-container">
 
 
         </div>
 
 
+        <!-- Update Listing Modal -->
+
+        <div class="modal fade" id="update-listing-modal" tabindex="-1" aria-labelledby="updateListingModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content rounded-0 thick-shadow-red border-black pb-5">
+              <div class="modal-body border-0 mx-auto" style="max-width: 360px; width: 80%;">
+                <h1 class="modal-title h2 fw-bold py-3 text-center" id="updateListingModalLabel">Update Listing</h1>
+                <form class="d-block" id="update-listing-form">
+                  <div class="mb-3">
+                    <label for="title" class="form-label mb-0">Title</label>
+                    <input type="text" class="form-control rounded-0 border-black" id="title" name="title">
+                  </div>
+        
+                  <div class="mb-3">
+                    <label for="description" class="form-label mb-0">Description</label>
+                    <textarea class="form-control rounded-0 border-black" id="description" name="description"></textarea>
+                  </div>
+        
+                  <!-- Container for dynamically added image URL and description fields -->
+                  <div id="image-fields-container"></div>
+        
+                  <div class="mb-3 d-flex justify-content-center" id="more-images-container">
+                    <button class="btn btn-outline-primary fw-semibold text-black rounded-0 mb-5" id="more-images" type="button">+ More Images</button>
+                  </div>
+        
+                  <div class="d-flex align-items-center flex-column border-0">
+                    <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold" id="update-listing-button">Update Listing <i class="bi bi-pencil-square"></i></button>
+                    <span class="border border-primary-subtle my-3 w-75" style="height: 1px;"></span>
+                    <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold">Nevermind <i class="bi bi-x-circle"></i></button>
+                    <span class="border border-primary-subtle my-3 w-75" style="height: 1px;"></span>
+                    <button type="button" class="btn btn-outline-danger rounded-0 fw-semibold">DELETE LISTING <i class="bi bi-trash"></i></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
       </section>
 
               <!-- Create Listing Banner -->
