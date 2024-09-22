@@ -9,6 +9,8 @@ import { fetchSingleListing } from '../api/listings/read.mjs';
 
 export function renderSingleListing(listing) {
     const listingContainer = document.getElementById("single-listing-container");
+    const loader = document.querySelector(".loader");
+    loader.style.display = "none";
     const listingElement = listingCard(listing);
     listingContainer.appendChild(listingElement);
     
