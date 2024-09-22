@@ -1,6 +1,10 @@
 import { postBid } from "../api/listings/bid.mjs";
 
 
+/**
+ * handle the bid form
+ */
+
 export function handleBidForm() {
     const bidButton = document.getElementById("submit-bid");
     const bidInput = document.getElementById("bid");
@@ -11,10 +15,10 @@ export function handleBidForm() {
         };
         try {
             await postBid(bid);
-            alert("Bid posted successfully");
             bidInput.value = "";
         } catch (error) {
-            alert("Failed to post bid");
+            console.error("Failed to post bid:", error);
+            alert(`Failed to post bid: ${error.message  }`);
         }
     });
 }
