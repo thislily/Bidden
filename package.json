@@ -24,6 +24,8 @@
     "bootstrap-icons": "^1.11.3"
   },
   "devDependencies": {
+    "eslint": "^9.11.0",
+    "globals": "^15.9.0",
     "live-server": "^1.2.2",
     "sass": "^1.74.1"
   }
