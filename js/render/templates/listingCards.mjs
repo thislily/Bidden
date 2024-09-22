@@ -357,8 +357,8 @@ export function listingCard(listing) {
   if (!profile) {
     logInToBid.classList.remove("d-none");
     bidButton.classList.add("d-none");
-  } else if (formatTimeRemaining(listing.data.endsAt) === ""){
-   logInToBid.classList.add("d-none");
+  } else if (formatTimeRemaining(listing.data.endsAt) === "") {
+    logInToBid.classList.add("d-none");
     bidButton.classList.add("d-none");
 
     const allDone = document.createElement("p");
@@ -373,8 +373,7 @@ export function listingCard(listing) {
     allDone.classList.add("text-center", "fw-semibold", "text-danger");
     allDone.textContent = "You cannot bid on your own listing!";
     card2Body.appendChild(allDone);
-    
-  }else {
+  } else {
     logInToBid.classList.add("d-none");
     bidButton.classList.remove("d-none");
   }
@@ -396,8 +395,10 @@ export function listingCard(listing) {
     bidInput.value = listing.data.bids[listing.data.bids.length - 1].amount + 1;
   }
   //bid input min value is 1 + the highest bid
-  bidInput.min = listing.data.bids.length > 0 ? listing.data.bids[listing.data.bids.length - 1].amount + 1 : 1;
-
+  bidInput.min =
+    listing.data.bids.length > 0
+      ? listing.data.bids[listing.data.bids.length - 1].amount + 1
+      : 1;
 
   // Handle all bids except the last one, which is the winning bid
   listing.data.bids.slice(0, -1).forEach((bid) => {

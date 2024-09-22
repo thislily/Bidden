@@ -7,24 +7,24 @@ import { headers, LISTINGS_URL } from "../auth/constants.mjs";
  */
 
 export async function createListing(listing) {
-    try {
-        const response = await fetch(LISTINGS_URL, {
-            method: 'POST',
-            headers: headers(),
-            body: JSON.stringify(listing),
-        });
+  try {
+    const response = await fetch(LISTINGS_URL, {
+      method: "POST",
+      headers: headers(),
+      body: JSON.stringify(listing),
+    });
 
-        const data = await response.json();
+    const data = await response.json();
 
-        window.location.href = `/listing/index.html?id=${data.data.id}`;
+    window.location.href = `/listing/index.html?id=${data.data.id}`;
 
-        if (!response.ok) {
-            throw new Error(data.message || "Failed to create listing.");
-        }
-
-        return data;
-    } catch (error) {
-        console.error("Error creating listing:", error);
-        throw error;  // Throw error so the calling function can handle it
+    if (!response.ok) {
+      throw new Error(data.message || "Failed to create listing.");
     }
+
+    return data;
+  } catch (error) {
+    console.error("Error creating listing:", error);
+    throw error;
+  }
 }

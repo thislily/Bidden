@@ -38,7 +38,6 @@ export async function loginUser(profile) {
 
       //reload the page
       window.location.reload();
-
     } else {
       throw new Error("Failed to login user: " + response.statusText);
     }

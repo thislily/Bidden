@@ -19,8 +19,11 @@ export async function registerUser(profile) {
     // Check if the registration was successful
     if (!response.ok) {
       const errorDetails = await response.json();
-      console.error("Registration failed. Details:", errorDetails); // Add this for detailed error logging
-      throw new Error(`Failed to register user: ${errorDetails.message || response.statusText}`);
+      throw new Error(
+        `Failed to register user: ${
+          errorDetails.message || response.statusText
+        }`
+      );
     }
 
     const userData = await response.json();

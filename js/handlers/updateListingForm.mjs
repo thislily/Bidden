@@ -1,7 +1,10 @@
-//handle the update listing form submission
-
 import { updateListing } from "../api/listings/update.mjs";
 
+/**
+ * Handle the update listing form submission
+ * @returns {Object} - the updated listing data
+ * 
+ */
 
 export const updateListingForm = document.getElementById("update-listing-form");
 export const updateListingButton = document.getElementById("update-listing-button");

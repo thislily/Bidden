@@ -49,8 +49,6 @@ export async function extendProfile() {
 
     localStorage.setItem("profile", JSON.stringify(updatedProfile));
 
-  
-
     return updatedProfile; // Return updated profile for further use if needed
   } catch (error) {
     console.error("Error extending profile:", error);

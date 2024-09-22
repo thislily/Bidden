@@ -3,6 +3,7 @@ import { postBid } from "../api/listings/bid.mjs";
 
 /**
  * handle the bid form
+ * 
  */
 
 export function handleBidForm() {

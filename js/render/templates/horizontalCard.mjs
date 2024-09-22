@@ -10,7 +10,14 @@ import { timeAgo } from "../templates/timeAgo.mjs";
 //template for horizontal card
 export function horizontalCard(listing) {
   const card = document.createElement("div");
-  card.classList.add("card", "mb-3", "thick-shadow", "rounded-0", "col-10", "col-sm-8");
+  card.classList.add(
+    "card",
+    "mb-3",
+    "thick-shadow",
+    "rounded-0",
+    "col-10",
+    "col-sm-8"
+  );
   card.style.maxWidth = "560px";
 
   const cardLink = document.createElement("a");
@@ -51,7 +58,8 @@ export function horizontalCard(listing) {
     cardImg.src = listing.media[0].url; // Ensure 'url' is lowercase, not 'URL'
     cardImg.alt = listing.media[0].alt || "Listing image";
   } else {
-    cardImg.src = "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg"; // Use a default image if no media
+    cardImg.src =
+      "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg"; // Use a default image if no media
     cardImg.alt = "Default listing image";
   }
   cardImg.classList.add("img-fluid", "object-fit-cover", "rounded-0");
@@ -64,7 +72,13 @@ export function horizontalCard(listing) {
   cardRow.appendChild(cardCol2);
 
   const cardBody = document.createElement("div");
-  cardBody.classList.add("card-body", "d-flex", "flex-column", "justify-content-between", "h-100");
+  cardBody.classList.add(
+    "card-body",
+    "d-flex",
+    "flex-column",
+    "justify-content-between",
+    "h-100"
+  );
   cardCol2.appendChild(cardBody);
 
   const cardTitle = document.createElement("h2");
@@ -78,9 +92,14 @@ export function horizontalCard(listing) {
   cardBody.appendChild(cardText2);
 
   const cardText3 = document.createElement("p");
-  cardText3.classList.add("card-text", "text-secondary-emphasis", "fst-italic", "fw-semibold");
-  if(listing._count){
-  cardText3.textContent ="Bids so far: " + listing._count.bids;
+  cardText3.classList.add(
+    "card-text",
+    "text-secondary-emphasis",
+    "fst-italic",
+    "fw-semibold"
+  );
+  if (listing._count) {
+    cardText3.textContent = "Bids so far: " + listing._count.bids;
   } else {
     cardText3.textContent = "";
   }
@@ -97,7 +116,7 @@ export function horizontalCard(listing) {
   if (listing.created === listing.updated) {
     cardText5.textContent = `Listed: ${timeAgo(listing.created)}`;
   } else {
-    cardText5.textContent += `Listed: ${timeAgo(listing.created)}`
+    cardText5.textContent += `Listed: ${timeAgo(listing.created)}`;
     const br = document.createElement("br");
     cardText5.appendChild(br);
     const cardText6 = document.createElement("p");

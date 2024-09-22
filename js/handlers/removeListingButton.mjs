@@ -2,6 +2,11 @@
 
 import { removeListing } from "../api/listings/remove.mjs"; 
 
+
+/**
+ * handle the remove listing button
+ */
+
 export const confirmDeleteListing = document.getElementById("confirm-delete-listing");
 
 export function handleRemoveListingButton() {

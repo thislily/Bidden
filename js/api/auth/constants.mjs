@@ -11,11 +11,11 @@ export const API_KEY = "c564739c-7bec-4fcf-8fc8-c60418613a1e"; // API Key
  */
 
 export function headers() {
-    const token = localStorage.getItem("token");
-  
-    return {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-      "X-Noroff-API-key": API_KEY,
-    };
-  }
+  const token = localStorage.getItem("token");
+
+  return {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+    "X-Noroff-API-key": API_KEY,
+  };
+}

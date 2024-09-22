@@ -1,5 +1,9 @@
 //set profile link from user profile in local storage
 
+/**
+ * Set the profile link in the navigation bar to the user's profile page
+ */
+
 export function setProfileLink() {
     if (!localStorage.getItem("profile")) {
         return;

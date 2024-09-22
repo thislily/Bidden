@@ -5,8 +5,8 @@
  */
 
 export function checkBiddingStatus(endsAt) {
-    const currentTime = new Date();
-    const endTime = new Date(endsAt);
-  
-    return currentTime >= endTime ? "Ended" : "Active";
-  }
+  const currentTime = new Date();
+  const endTime = new Date(endsAt);
+
+  return currentTime >= endTime ? "Ended" : "Active";
+}

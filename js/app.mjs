@@ -18,16 +18,16 @@ import {
 import { setProfileLink } from "./handlers/setProfileLink.mjs";
 import { renderProfile } from "./render/profile.mjs";
 import { moreImages, handleMoreImages } from "./handlers/moreImages.mjs";
-import { createListingForm, handleCreateListingForm } from "./handlers/createListingForm.mjs";
+import {
+  createListingForm,
+  handleCreateListingForm,
+} from "./handlers/createListingForm.mjs";
 import { handleUpdateListingForm } from "./handlers/updateListingForm.mjs";
 import { handleRemoveListingButton } from "./handlers/removeListingButton.mjs";
 import { extendProfile } from "./api/profile/extendProfile.mjs";
 import { handleUpdateProfileForm } from "./handlers/updateProfileForm.mjs";
 import { handleBidForm } from "./handlers/bidForm.mjs";
 import { logInToCreateListing } from "./handlers/logInToCreate.mjs";
-
-
-
 
 if (location.pathname === "/" || location.pathname === "/index.html") {
   renderListings();
@@ -42,7 +42,6 @@ if (
   handleUpdateListingForm();
   handleRemoveListingButton();
   handleBidForm();
-
 }
 
 if (
@@ -65,10 +64,10 @@ if (loginForm) {
   handleLoginForm();
 }
 
-if(createListingForm){
+if (createListingForm) {
   handleCreateListingForm();
   logInToCreateListing();
-} 
+}
 
 if (filterListings) {
   handleFilter();
@@ -78,10 +77,9 @@ if (searchBar) {
   handleSearch();
 }
 
-if (moreImages){
+if (moreImages) {
   handleMoreImages();
 }
-
 
 handleNavMenuAvatar();
 handleLogoutButton();
@@ -91,5 +89,4 @@ document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("profile")) {
     extendProfile();
   }
-
 });
