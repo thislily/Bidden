@@ -29,7 +29,10 @@ export function handleNavMenuAvatar() {
 
     navUsername.textContent = 'Welcome, ' + profile.name;
     openMenu.src = profile.avatar.url;
-  } else {
+
+    console.log("User avatar updated in the navigation menu");
+  } else if (!profile){
+
     // Hide the user avatar and credits in the navigation menu
     navUsernameContainer.classList.remove("d-md-flex");
     navLoginButton.classList.remove("d-none");

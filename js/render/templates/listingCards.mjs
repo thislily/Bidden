@@ -2,6 +2,7 @@ import { timeAgo } from "./timeAgo.mjs";
 import { formatTimeRemaining } from "./endsAt.mjs";
 import { checkBiddingStatus } from "./isActive.mjs";
 import { fillUpdateListingForm } from "../../render/templates/updateListing.mjs";
+import { postBid } from "../../api/listings/bid.mjs";
 
 /**
  * function that returns a listing card template
@@ -10,11 +11,7 @@ import { fillUpdateListingForm } from "../../render/templates/updateListing.mjs"
  *
  */
 
-//template for listing card
 export function listingCard(listing) {
-  // get id from the query string
-  const listingId = new URLSearchParams(window.location.search).get("id");
-
   const currentBreadcrumb = document.getElementById("current-breadcrumb");
   currentBreadcrumb.textContent = listing.data.title;
 
@@ -105,7 +102,6 @@ export function listingCard(listing) {
   if (profile.name === listing.data.seller.name) {
     overlayButton.classList.add("d-none");
 
-
     updateButton.classList.add(
       "btn",
       "btn-outline-primary",
@@ -126,8 +122,8 @@ export function listingCard(listing) {
     });
   }
 
-if (formatTimeRemaining(listing.data.endsAt) === "") {
-updateButton.classList.add("d-none");
+  if (formatTimeRemaining(listing.data.endsAt) === "") {
+    updateButton.classList.add("d-none");
   }
 
   // Continue with creating carousel indicators and items
@@ -296,7 +292,7 @@ updateButton.classList.add("d-none");
   card2.appendChild(card2Header);
 
   const card2Title = document.createElement("h2");
-  card2Title.classList.add("card-title", "h5", "p-3", "pb-0","text-center");
+  card2Title.classList.add("card-title", "h5", "p-3", "pb-0", "text-center");
 
   // Check if the bidding has ended and display the appropriate text
   if (formatTimeRemaining(listing.data.endsAt) === "") {
@@ -314,93 +310,30 @@ updateButton.classList.add("d-none");
   card2Header.appendChild(card2Text);
 
   const card2Body = document.createElement("div");
-  card2Body.classList.add(
-    "d-flex",
-    "justify-content-start",
-    "align-items-center",
-    "p-3"
-  );
+  card2Body.id = "bid-button-container";
+  card2Body.classList.add("card-body", "mx-auto", "p-3");
   card2.appendChild(card2Body);
 
-  const bidAvatar = document.createElement("img");
-  //check if user is logged in and display avatar
-  if (localStorage.getItem("profile")) {
+  const bidButton = document.createElement("button");
 
-    bidAvatar.src = JSON.parse(localStorage.getItem("profile")).avatar.url;
-    bidAvatar.alt = JSON.parse(localStorage.getItem("profile")).avatar.alt;
-    bidAvatar.classList.add("avatar-mini");
-    card2Body.appendChild(bidAvatar);
-  }
+  bidButton.classList.add(
+    "btn",
+    "btn-large",
+    "text-black",
+    "mx-auto",
+    "rounded-0",
+    "m-2",
+    "fw-semibold",
+    "border-1",
+    "border-black"
+  );
+  bidButton.id = "bid-now-button";
+  bidButton.textContent = "Bid Now";
+  bidButton.style.cursor = "pointer";
+  bidButton.setAttribute("data-bs-toggle", "modal");
+  bidButton.setAttribute("data-bs-target", "#bid-modal");
+  card2Body.appendChild(bidButton);
 
-  // Create bid input and append it
-  const bidInput = document.createElement("input");
-  bidInput.type = "text";
-  bidInput.name = "bid";
-  bidInput.id = "bid";
-  bidInput.classList.add("rounded-0", "border-1", "me-2");
-  bidInput.style.width = "80px";
-  bidInput.style.height = "38px";
-  card2Body.appendChild(bidInput);
-
-  // Change the bid button based on user login status
-  function updateBidButton() {
-    const bidButton = document.createElement("button");
-    bidButton.classList.add(
-      "btn",
-      "btn-outline-primary",
-      "text-black",
-      "rounded-0"
-    );
-    bidButton.style.cursor = "pointer";
-    bidButton.type = "button"; // Make sure it's a button, not submit
-
-    if (!localStorage.getItem("profile")) {
-      bidButton.textContent = "Log in to bid";
-      bidInput.disabled = true;
-
-      // Add event listener to open login modal
-      bidButton.addEventListener("click", () => {
-        const modal = document.getElementById("login-modal");
-        if (modal) {
-          const bootstrapModal = new bootstrap.Modal(modal);
-          bootstrapModal.show(); // Open the login modal
-        }
-      });
-    } else {
-      // If user is logged in, display bid button
-      bidButton.textContent = "";
-      bidInput.disabled = false;
-      bidButton.addEventListener("click", () => {
-        // Implement bid submission logic here
-      });
-    }
-
-    const warnSeller = document.createElement("p");
-    warnSeller.classList.add("text-danger", "fw-semibold", "px-4", "text-center");
-    if (profile.name === listing.data.seller.name) {
-        bidButton.classList.add("d-none");
-        bidInput.classList.add("d-none");
-        bidAvatar.classList.add("d-none");
-
-        warnSeller.textContent = "You cannot bid on your own listing";
-        card2.appendChild(warnSeller);
-    }
-
-        if (formatTimeRemaining(listing.data.endsAt) === "") {
-      bidButton.textContent = "Bidding ended";
-      bidButton.classList.add("d-none");
-      bidInput.classList.add("d-none");
-      bidAvatar.classList.add("d-none");
-      warnSeller.textContent = "Auction Closed";
-      card2.appendChild(warnSeller);
-    }
-
-    // Append the button to the card body
-    card2Body.appendChild(bidButton);
-  }
-
-  // Call the function to initialize the button
-  updateBidButton();
   const bidList = document.createElement("ul");
   bidList.classList.add(
     "list-group",
@@ -488,10 +421,10 @@ updateButton.classList.add("d-none");
     const winningTag = document.createElement("span");
     winningTag.classList.add("fst-italic", "fw-semibold", "ps-2");
 
-    if(formatTimeRemaining(listing.data.endsAt) === "") {
+    if (formatTimeRemaining(listing.data.endsAt) === "") {
       winningTag.textContent = " WINNER";
-    } else {   
-    winningTag.textContent = " WINNING";
+    } else {
+      winningTag.textContent = " WINNING";
     }
     winningLink.appendChild(winningTag);
 
