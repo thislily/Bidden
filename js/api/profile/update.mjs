@@ -1,5 +1,13 @@
 import { headers, PROFILES_URL } from "../auth/constants.mjs";
 
+
+/**
+ * Function to update a user profile
+ * @param {Object} profile - the profile object
+ * @returns {Object} the updated profile object
+ * @throws {Error} if the profile is not updated
+ */
+
 export async function updateProfile(profile) {
     try {
         const queryParams = new URLSearchParams(window.location.search);

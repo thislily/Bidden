@@ -5,6 +5,8 @@ import { headers, LISTINGS_URL } from "../auth/constants.mjs";
  * 
  * @param {*} listing 
  * @description Update a listing
+ * @returns {Object} the updated listing object
+ * @throws {Error} if the listing is not updated
  */
 
 export async function updateListing(listing) {

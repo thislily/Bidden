@@ -386,6 +386,9 @@ export function listingCard(listing) {
   if (listing.data.bids.length > 0) {
     bidInput.value = listing.data.bids[listing.data.bids.length - 1].amount + 1;
   }
+  //bid input min value is 1 + the highest bid
+  bidInput.min = listing.data.bids.length > 0 ? listing.data.bids[listing.data.bids.length - 1].amount + 1 : 1;
+
 
   // Handle all bids except the last one, which is the winning bid
   listing.data.bids.slice(0, -1).forEach((bid) => {
