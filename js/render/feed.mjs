@@ -14,7 +14,8 @@ export async function renderListings(type = null) {
 
     // Fetch listings based on the type (either "filter" or "search")
     const listings = await fetchListings(type);  // Make sure "search" is passed to fetchListings
-
+    const loader = document.querySelector(".loader");
+    loader.style.display = "none";
     // Check if listings exist and if there are any data entries
     if (listings && listings.data && listings.data.length > 0) {
         listings.data.forEach((listing) => {

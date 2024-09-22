@@ -28,8 +28,6 @@ import { handleBidForm } from "./handlers/bidForm.mjs";
 
 
 
-
-
 if (location.pathname === "/" || location.pathname === "/index.html") {
   renderListings();
 }
@@ -42,8 +40,6 @@ if (
   handleUpdateListingForm();
   handleRemoveListingButton();
   handleBidForm();
-
-
 
 }
 
@@ -88,6 +84,9 @@ handleNavMenuAvatar();
 handleLogoutButton();
 document.addEventListener("DOMContentLoaded", () => {
   setProfileLink();
-  extendProfile();
+
+  if (localStorage.getItem("profile")) {
+    extendProfile();
+  }
 
 });

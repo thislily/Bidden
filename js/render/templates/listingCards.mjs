@@ -99,7 +99,7 @@ export function listingCard(listing) {
   const profile = JSON.parse(localStorage.getItem("profile"));
 
   const updateButton = document.createElement("button");
-  if (profile.name === listing.data.seller.name) {
+  if (profile && profile.name === listing.data.seller.name) {
     overlayButton.classList.add("d-none");
 
     updateButton.classList.add(
@@ -328,11 +328,47 @@ export function listingCard(listing) {
     "border-black"
   );
   bidButton.id = "bid-now-button";
-  bidButton.textContent = "Bid Now";
+  bidButton.textContent = "Place Bid";
   bidButton.style.cursor = "pointer";
   bidButton.setAttribute("data-bs-toggle", "modal");
   bidButton.setAttribute("data-bs-target", "#bid-modal");
   card2Body.appendChild(bidButton);
+
+  const logInToBid = document.createElement("button");
+  logInToBid.classList.add(
+    "btn",
+    "btn-large",
+    "text-black",
+    "mx-auto",
+    "rounded-0",
+    "m-2",
+    "fw-semibold",
+    "border-1",
+    "border-black",
+    "d-none"
+  );
+  logInToBid.id = "log-in-to-bid-button";
+  logInToBid.textContent = "Log in to bid";
+  logInToBid.style.cursor = "pointer";
+  logInToBid.setAttribute("data-bs-toggle", "modal");
+  logInToBid.setAttribute("data-bs-target", "#login-modal");
+  card2Body.appendChild(logInToBid);
+
+  if (!profile) {
+    logInToBid.classList.remove("d-none");
+    bidButton.classList.add("d-none");
+  } else if (formatTimeRemaining(listing.data.endsAt) === ""){
+   logInToBid.classList.add("d-none");
+    bidButton.classList.add("d-none");
+
+    const allDone = document.createElement("p");
+    allDone.classList.add("text-center", "fw-semibold", "text-danger");
+    allDone.textContent = "The Auction is over!";
+    card2Body.appendChild(allDone);
+  } else{
+    logInToBid.classList.add("d-none");
+    bidButton.classList.remove("d-none");
+  }
 
   const bidList = document.createElement("ul");
   bidList.classList.add(
@@ -343,6 +379,13 @@ export function listingCard(listing) {
     "border-0"
   );
   card2.appendChild(bidList);
+
+  //input value is 1 + the highest bid
+
+  const bidInput = document.getElementById("bid");
+  if (listing.data.bids.length > 0) {
+    bidInput.value = listing.data.bids[listing.data.bids.length - 1].amount + 1;
+  }
 
   // Handle all bids except the last one, which is the winning bid
   listing.data.bids.slice(0, -1).forEach((bid) => {
