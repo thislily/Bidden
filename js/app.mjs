@@ -24,6 +24,7 @@ import { handleRemoveListingButton } from "./handlers/removeListingButton.mjs";
 import { extendProfile } from "./api/profile/extendProfile.mjs";
 import { handleUpdateProfileForm } from "./handlers/updateProfileForm.mjs";
 import { handleBidForm } from "./handlers/bidForm.mjs";
+import { logInToCreateListing } from "./handlers/logInToCreate.mjs";
 
 
 
@@ -65,6 +66,7 @@ if (loginForm) {
 
 if(createListingForm){
   handleCreateListingForm();
+  logInToCreateListing();
 } 
 
 if (filterListings) {

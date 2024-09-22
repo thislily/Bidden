@@ -8,15 +8,15 @@ import { headers, LISTINGS_URL } from "../auth/constants.mjs";
 
 
 export async function fetchListings(type) {
-    let ADD_ON_URL = "";
+    let ADD_ON_URL = "?sort=created&order=desc";
 
     if (type === "filter") {
         const filterValue = document.getElementById("filter-listings").value;
 
         if (filterValue === "1") {
-            ADD_ON_URL = `?_active=true`;
+            ADD_ON_URL = `?_active=true&sort=created&order=desc`;
         } else if (filterValue === "2") {
-            ADD_ON_URL = `?_active=false`;
+            ADD_ON_URL = `?_active=false&sort=created&order=desc`;
         }
 
     } else if (type === "search") {
@@ -24,7 +24,7 @@ export async function fetchListings(type) {
 
         if (searchValue !== "") {
             // Build the correct search URL
-            ADD_ON_URL = `/search?q=${searchValue}`;
+            ADD_ON_URL = `/search?q=${searchValue}&sort=created&order=desc`;
         } else {
             return;  // Exit if the search bar is empty
         }
