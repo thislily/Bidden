@@ -14,7 +14,7 @@ import {
   searchBar,
   handleFilter,
   handleSearch,
-} from "./handlers/filter&search.mjs";
+} from "./render/feed.mjs";
 import { setProfileLink } from "./handlers/setProfileLink.mjs";
 import { renderProfile } from "./render/profile.mjs";
 import { moreImages, handleMoreImages } from "./handlers/moreImages.mjs";

@@ -23,11 +23,6 @@ export async function postBid(bid) {
             body: JSON.stringify(bid),
         });
 
-        if (response.status === 204) {
-            console.log("Bid posted successfully with no content");
-            return;
-        }
-
         const data = await response.json();
 
         if (!response.ok) {
@@ -35,7 +30,6 @@ export async function postBid(bid) {
             throw new Error(data.message || "Failed to post bid.");
         }
 
-        console.log("Bid posted successfully:", data);
         window.location.reload();
         return data;
     } catch (error) {

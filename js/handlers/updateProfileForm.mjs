@@ -17,7 +17,6 @@ export function handleUpdateProfileForm() {
         }
 
         const name = userProfile.name;
-        console.log(name);
 
         // Check and set default values for banner and avatar
         const bannerUrl = updateProfileForm.banner.value || "https://i.etsystatic.com/30097568/r/il/394cca/3255209417/il_570xN.3255209417_g5c8.jpg";

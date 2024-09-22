@@ -32,7 +32,6 @@ export async function updateProfile(profile) {
             throw new Error(data.message || "Failed to update profile.");
         }
 
-        console.log("Profile updated successfully:", data);
 
         window.location.reload();  // Reload the page after success
 

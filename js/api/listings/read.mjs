@@ -1,5 +1,5 @@
 import { headers, LISTINGS_URL } from "../auth/constants.mjs";
-import { currentPage, limit } from "../../render/feed.mjs";
+
 
 /**
  * fetch all listings from the api
@@ -7,7 +7,7 @@ import { currentPage, limit } from "../../render/feed.mjs";
  * @throws {Error} - if the listings are not found in the api response
  */
 
-export async function fetchListings(type = null, page = 1) {
+export async function fetchListings(type, currentPage, limit) {
     let ADD_ON_URL = `?sort=created&order=desc&limit=${limit}&page=${currentPage}`;
 
     // Add filter or search logic as needed
@@ -21,7 +21,7 @@ export async function fetchListings(type = null, page = 1) {
     } else if (type === "search") {
         const searchValue = document.getElementById("search-bar").value;
         if (searchValue !== "") {
-            ADD_ON_URL = `/search?q=${searchValue}&sort=created&order=desc&limit=${limit}&page=${currentPage}`;
+            ADD_ON_URL = `/search?q=${encodeURIComponent(searchValue)}&sort=created&order=desc`;
         } else {
             return;
         }
