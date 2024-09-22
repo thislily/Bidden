@@ -246,7 +246,7 @@
           <div class="d-flex align-items-center flex-column border-0">
             <button type="submit" class="btn btn-outline-primary text-black rounded-0 fw-semibold" id="update-listing-button">Save Changes <i class="bi bi-pencil-square"></i></button>
             <span class="border border-primary-subtle my-3 w-75" style="height: 1px;"></span>
-            <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold">Nevermind <i class="bi bi-x-circle"></i></button>
+            <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle"></i></button>
             <span class="border border-primary-subtle my-3 w-75" style="height: 1px;"></span>
             <button type="button" class="btn btn-outline-danger rounded-0 fw-semibold" data-bs-target="#delete-listing-modal" data-bs-toggle="modal">DELETE LISTING <i class="bi bi-trash"></i></button>
           </div>
@@ -273,6 +273,43 @@
     </div>
   </div>
 </div>
+
+
+<!-- Bid Modal -->
+<div class="modal fade" id="bid-modal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="Bid Profile modal" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content rounded-0 thick-shadow-red border-black pb-5" >
+      <div class="modal-body border-0 mx-auto" style="max-width: 360px; width: 80%;">
+        <h1 class="modal-title h2 fw-bold py-3 text-center" id="login-label">Post a Bid</h1>
+
+        <!--Bid Form starts here -->
+
+        <form class="" id="bid-form">
+ 
+
+          <div class="mb-3">
+              <label for="bid" class="form-label mb-0"></label>
+              <input                     
+              type="number"
+              name="bid"
+              class="form-control rounded-0 border-black"
+              id="bid"
+              title="Please place a bid">
+            </div>
+
+          <!-- Submit and cancel buttons inside the form -->
+          <div class="d-flex align-items-center flex-column border-0">
+            <button type="button" class="btn btn-outline-primary text-black rounded-0 fw-semibold" id="submit-bid">Submit Bid <i class="bi bi-box-arrow-in-right "></i></button>
+            <span class="border  border-primary-subtle my-3 w-75" style="height: 1px;"></span>
+            <button type="button" class="btn btn-outline-secondary rounded-0 fw-semibold" data-bs-dismiss="modal">Nevermind <i class="bi bi-x-circle "></i></button>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
         

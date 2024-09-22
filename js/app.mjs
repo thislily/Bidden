@@ -23,6 +23,12 @@ import { handleUpdateListingForm } from "./handlers/updateListingForm.mjs";
 import { handleRemoveListingButton } from "./handlers/removeListingButton.mjs";
 import { extendProfile } from "./api/profile/extendProfile.mjs";
 import { handleUpdateProfileForm } from "./handlers/updateProfileForm.mjs";
+import { handleBidForm } from "./handlers/bidForm.mjs";
+
+
+
+
+
 
 if (location.pathname === "/" || location.pathname === "/index.html") {
   renderListings();
@@ -35,6 +41,9 @@ if (
   displaySingleListing();
   handleUpdateListingForm();
   handleRemoveListingButton();
+  handleBidForm();
+
+
 
 }
 
@@ -74,9 +83,11 @@ if (moreImages){
   handleMoreImages();
 }
 
+
 handleNavMenuAvatar();
 handleLogoutButton();
 document.addEventListener("DOMContentLoaded", () => {
   setProfileLink();
   extendProfile();
+
 });

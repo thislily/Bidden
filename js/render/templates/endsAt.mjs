@@ -27,6 +27,11 @@ export function formatTimeRemaining(endTime) {
       timeRemaining += `${days} day${days > 1 ? 's' : ''} `;
     }
     timeRemaining += `${hours} hour${hours !== 1 ? 's' : ''}`;
+
+    //if time remaining is 0 days and 0 hours, return empty string
+    if (days === 0 && hours === 0) {
+      return "";
+    }
   
     return timeRemaining.trim();
   }
