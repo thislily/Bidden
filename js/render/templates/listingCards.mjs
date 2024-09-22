@@ -365,7 +365,16 @@ export function listingCard(listing) {
     allDone.classList.add("text-center", "fw-semibold", "text-danger");
     allDone.textContent = "The Auction is over!";
     card2Body.appendChild(allDone);
-  } else{
+  } else if (profile.name === listing.data.seller.name) {
+    logInToBid.classList.add("d-none");
+    bidButton.classList.add("d-none");
+
+    const allDone = document.createElement("p");
+    allDone.classList.add("text-center", "fw-semibold", "text-danger");
+    allDone.textContent = "You cannot bid on your own listing!";
+    card2Body.appendChild(allDone);
+    
+  }else {
     logInToBid.classList.add("d-none");
     bidButton.classList.remove("d-none");
   }
