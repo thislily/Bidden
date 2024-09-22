@@ -1,4 +1,5 @@
 import { headers, LISTINGS_URL } from "../auth/constants.mjs";
+import { currentPage, limit } from "../../render/feed.mjs";
 
 /**
  * fetch all listings from the api
@@ -6,30 +7,25 @@ import { headers, LISTINGS_URL } from "../auth/constants.mjs";
  * @throws {Error} - if the listings are not found in the api response
  */
 
+export async function fetchListings(type = null, page = 1) {
+    let ADD_ON_URL = `?sort=created&order=desc&limit=${limit}&page=${currentPage}`;
 
-export async function fetchListings(type) {
-    let ADD_ON_URL = "?sort=created&order=desc";
-
+    // Add filter or search logic as needed
     if (type === "filter") {
         const filterValue = document.getElementById("filter-listings").value;
-
         if (filterValue === "1") {
-            ADD_ON_URL = `?_active=true&sort=created&order=desc`;
+            ADD_ON_URL = `?_active=true&sort=created&order=desc&limit=${limit}&page=${currentPage}`;
         } else if (filterValue === "2") {
-            ADD_ON_URL = `?_active=false&sort=created&order=desc`;
+            ADD_ON_URL = `?_active=false&sort=created&order=desc&limit=${limit}&page=${currentPage}`;
         }
-
     } else if (type === "search") {
         const searchValue = document.getElementById("search-bar").value;
-
         if (searchValue !== "") {
-            // Build the correct search URL
-            ADD_ON_URL = `/search?q=${searchValue}&sort=created&order=desc`;
+            ADD_ON_URL = `/search?q=${searchValue}&sort=created&order=desc&limit=${limit}&page=${currentPage}`;
         } else {
-            return;  // Exit if the search bar is empty
+            return;
         }
     }
-
 
     try {
         const response = await fetch(LISTINGS_URL + ADD_ON_URL, {
@@ -43,11 +39,11 @@ export async function fetchListings(type) {
 
         const listingsData = await response.json();
         return listingsData;
-
     } catch (error) {
         console.error("Error fetching listings:", error);
     }
 }
+
 
 
 export async function fetchSingleListing() {

@@ -7,7 +7,7 @@ import { registerForm, handleRegForm } from "./handlers/registerForm.mjs";
 import { loginForm, handleLoginForm } from "./handlers/loginForm.mjs";
 import { handleNavMenuAvatar } from "./handlers/navMenuAvatar.mjs";
 import { handleLogoutButton } from "./handlers/logoutUser.mjs";
-import { renderListings } from "./render/feed.mjs";
+import { renderListings, handleSeeMore } from "./render/feed.mjs";
 import { displaySingleListing } from "./render/listing.mjs";
 import {
   filterListings,
@@ -31,6 +31,7 @@ import { logInToCreateListing } from "./handlers/logInToCreate.mjs";
 
 if (location.pathname === "/" || location.pathname === "/index.html") {
   renderListings();
+  handleSeeMore();
 }
 
 if (
