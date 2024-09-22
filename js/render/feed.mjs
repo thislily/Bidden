@@ -7,30 +7,46 @@ import { fetchListings } from "../api/listings/read.mjs";
 * @returns {HTMLDivElement}
 */
 
+export let currentPage = 1;  // Keep track of the current page
+export let limit = 20;     // Number of listings per page
 
 export async function renderListings(type = null) {
     const listingsContainer = document.getElementById("listings-container");
-    listingsContainer.innerHTML = '';  // Clear previous listings
-
-    // Fetch listings based on the type (either "filter" or "search")
-    const listings = await fetchListings(type);  // Make sure "search" is passed to fetchListings
     const loader = document.querySelector(".loader");
-    loader.style.display = "none";
+    loader.style.display = "block";  // Show loader while fetching data
+
+    // Fetch listings for the current page
+    const listings = await fetchListings(type, currentPage);
+    loader.style.display = "none";  // Hide loader once data is fetched
+
     // Check if listings exist and if there are any data entries
     if (listings && listings.data && listings.data.length > 0) {
         listings.data.forEach((listing) => {
-            listingsContainer.appendChild(horizontalCard(listing));  // Display listings
+            listingsContainer.appendChild(horizontalCard(listing));  // Append listings
         });
+
+        // Check if more listings are available, otherwise hide "See More" button
+        if (listings.data.length < limit) {
+            document.getElementById("see-more").style.display = "none";  // Hide if fewer results than limit
+        }
     } else {
-        // If no results, display a message
-        const noResults = document.createElement("p");
-        noResults.classList.add("h1");
-        noResults.style.height = "400px";
-        noResults.textContent = "No results found.";
-        listingsContainer.appendChild(noResults);
+        if (listingsContainer.children.length === 0) {  // Only show if no previous listings exist
+            const noResults = document.createElement("p");
+            noResults.classList.add("h1");
+            noResults.style.height = "400px";
+            noResults.textContent = "No results found.";
+            listingsContainer.appendChild(noResults);
+        }
 
-        const seeMore =document.getElementById("see-more");
-        seeMore.style.display = "none";
-
+        document.getElementById("see-more").style.display = "none";  // Hide "See More" button
     }
+}
+
+export const seeMoreButton = document.getElementById("see-more");
+
+export function handleSeeMore(){
+    seeMoreButton.addEventListener("click", async () => {
+        currentPage++;  // Increment page number
+         renderListings();  // Fetch and display next page of listings
+    });
 }
