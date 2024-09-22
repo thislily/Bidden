@@ -18,7 +18,7 @@ Bubble is an auction site, developed as part of the Semester Exam 2 at Noroff. I
 ##Demo
 Visit a live demo here https://bidden.netlify.app
 
-![Bidden Screenshot](images/screenshot.jpg)
+![Bidden Screenshot](images/Screenshot.jpg)
 
 
 ## Setup
