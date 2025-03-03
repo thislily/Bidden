@@ -1,70 +1,56 @@
 # Bidden
 
-Bubble is an auction site, developed as part of the Semester Exam 2 at Noroff. It allows users to create, view, update, and delete listings, make bids on others items, view their credits, and also view and edit their profile.
-
-## Features
-
-- **User Authentication**: Users with `@noroff.no` or `@stud.noroff.no` email addresses can register and login to their profiles.
-- **Listings Feed**: Users can view a feed of the posted listings.
-- **Listing Filtering**: Users can filter the post feed based on if they are active or not.
-- **Listing Search**: Users can search for specific listings within the listing feed.
-- **View Single Listing**: Users can view the content of a single listing by its ID.
-- **Create Listing**: Logged-in users can create a new listing.
-- **Update Listing**: Users can update the content of their own listings.
-- **Delete Listing**: Users can delete their own listings.
-- **Profile Editing**: Users can edit their profile media and bio.
-- **Profile with Listings and Wins**: Users can view a profile which includes the wins and listings, of a user, by name .
-
-## Demo
-
-Visit a live demo here https://bidden.netlify.app
-
 ![Bidden Screenshot](images/Screenshot.jpg)
 
+## 🚀 About the Project
+Bidden is an auction site developed as part of the Semester Exam 2 at Noroff. It allows users to create, view, update, and delete listings, make bids on items, view their credits, and manage their profiles.
 
-## Setup
+## 🎨 Features
+- 🔐 **User Authentication** – Users with `@noroff.no` or `@stud.noroff.no` email addresses can register and log in.
+- 📜 **Listings Feed** – Browse a feed of all posted listings.
+- 🔍 **Listing Search & Filtering** – Search for specific listings and filter active or inactive posts.
+- 📄 **View Single Listing** – Detailed view of a listing, including bids.
+- ➕ **Create Listing** – Logged-in users can create new listings.
+- ✏️ **Update & Delete Listings** – Users can edit or remove their own listings.
+- 🏆 **Profile with Listings & Wins** – Users can view their profile, including their posted listings and winning bids.
+- 🖼 **Profile Editing** – Users can update their profile media and bio.
 
-1. Clone the repository:
+## 🌍 Live Demo
+Visit the live site: [Bidden](https://bidden.netlify.app)
 
-   ```bash
-   git clone https://github.com/thislily/Bidden
-   ```
+## 🛠️ Tech Stack
+- **Frontend**: JavaScript, HTML, CSS, SCSS
+- **Design & Planning**: Figma, Trello, Placker (Trello plugin)
 
-2. Navigate to the project directory:
+## 📦 Installation & Setup
+To run this project locally, follow these steps:
 
-   ```bash
-   cd bidden
-   ```
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/thislily/Bidden.git
+cd bidden
+```
 
-3. Install dependencies:
+### 2️⃣ Install Dependencies
+```bash
+npm install
+```
 
-   ```bash
-   npm install
-   ```
+### 3️⃣ Build the Project
+```bash
+npm run build
+```
 
-5. Build the project:
-   ```bash
-   npm run build
-    ```
+### 4️⃣ Start Development Mode
+```bash
+npm run watch
+```
 
-4. Watch the project:
-   ```bash
-   npm run watch
-   ```
+## 📬 Contact
+For any inquiries or feedback, feel free to reach out:
+📧 [lilywatson.dev@gmail.com](mailto:lilywatson.dev@gmail.com)
 
-## Technologies Used
+---
+**Made by Lily Watson**
 
-- JavaScript
-- HTML
-- CSS
-- SCSS
-- Figma
-- Trello
-- Placker (just the plugin for Trello)
 
-## Credits
-
-Bidden is developed by Lily Watson as part of the Semester Exam 2 at Noroff.
-
-## Contact Information
-For any inquiries or feedback, feel free to reach out to Lily Watson at lilywatson.dev@gmail.com.
